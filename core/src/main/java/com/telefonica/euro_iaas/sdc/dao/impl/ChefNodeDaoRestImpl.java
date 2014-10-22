@@ -74,7 +74,7 @@ public class ChefNodeDaoRestImpl implements ChefNodeDao {
 
     private String NODE_NOT_FOUND_PATTERN = "404";
     private String NODES_PATH = "/nodes";
-    private static final int MAX_TIME = 90000;
+    private static final int MAX_TIME = 220000;
 
     public ChefNode loadNodeFromHostname(String hostname, String token) throws EntityNotFoundException,
             CanNotCallChefException {
@@ -250,7 +250,7 @@ public class ChefNodeDaoRestImpl implements ChefNodeDao {
                     throw new CanNotCallChefException(errorMesg);
                 }
                 log.info("more");
-                Thread.sleep(time);
+                Thread.sleep(checkTime);
 
                 Map<String, String> header = getHeaders("GET", path, "");
                 System.out.println(chefServerUrl + path);
@@ -267,7 +267,7 @@ public class ChefNodeDaoRestImpl implements ChefNodeDao {
                 log.info("geting");
                 response = IOUtils.toString(wr.get(InputStream.class));
                 log.info(response);
-                time += time;
+                time = time + checkTime;
 
             } catch (IOException e) {
                 log.warn(e.getMessage());
