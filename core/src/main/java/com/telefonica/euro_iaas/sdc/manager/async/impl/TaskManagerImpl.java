@@ -57,7 +57,10 @@ public class TaskManagerImpl implements TaskManager {
     public Task createTask(Task task) {
         try {
             task = taskDao.create(task);
-            task.setHref(getHrefUrl(task));
+            String taskId = Long.valueOf(task.getId()).toString().replace(".", "");
+            task.setHref(MessageFormat.format(systemPropertiesProvider.getProperty(SDC_MANAGER_URL)+ Configuration.TASK_BASE_PATH, Long.valueOf(task.getId())
+                    .toString(), task.getVdc()));
+
             return task;
         } catch (AlreadyExistsEntityException e) {
             throw new SdcRuntimeException(e);
@@ -70,7 +73,8 @@ public class TaskManagerImpl implements TaskManager {
     @Override
     public Task updateTask(Task task) {
         task = taskDao.update(task);
-        task.setHref(getHrefUrl(task));
+        task.setHref(MessageFormat.format(systemPropertiesProvider.getProperty(SDC_MANAGER_URL)+ Configuration.TASK_BASE_PATH, Long.valueOf(task.getId())
+                .toString(), task.getVdc()));
         return task;
     }
 
@@ -80,22 +84,20 @@ public class TaskManagerImpl implements TaskManager {
     @Override
     public Task load(Long id) throws EntityNotFoundException {
         Task task = taskDao.load(id);
-        task.setHref(getHrefUrl(task));
+        task.setHref(MessageFormat.format(systemPropertiesProvider.getProperty(SDC_MANAGER_URL)+ Configuration.TASK_BASE_PATH, Long.valueOf(task.getId())
+                .toString(), task.getVdc()));
         return task;
     }
 
-    private String getHrefUrl (Task task) {
-        return MessageFormat.format(systemPropertiesProvider.getProperty(SDC_MANAGER_URL) +
-            Configuration.TASK_BASE_PATH, Long.valueOf(task.getId()).toString(), task.getVdc());
-    }
     /**
      * {@inheritDoc}
      */
     @Override
     public List<Task> findByCriteria(TaskSearchCriteria criteria) {
         List<Task> tasks = taskDao.findByCriteria(criteria);
+        String taskUrl = systemPropertiesProvider.getProperty(SDC_MANAGER_URL)+ Configuration.TASK_BASE_PATH;
         for (Task task : tasks) {
-            task.setHref(getHrefUrl(task));
+            task.setHref(MessageFormat.format(taskUrl, Long.valueOf(task.getId()).toString(), task.getVdc()));
         }
         return tasks;
     }

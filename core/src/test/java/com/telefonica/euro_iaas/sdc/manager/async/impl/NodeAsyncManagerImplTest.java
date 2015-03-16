@@ -25,7 +25,6 @@
 package com.telefonica.euro_iaas.sdc.manager.async.impl;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -47,7 +46,6 @@ public class NodeAsyncManagerImplTest {
     NodeAsyncManagerImpl nodeAsyncManager;
     NodeManager nodeManager = mock(NodeManager.class);
     TaskNotificator taskNotificator = mock(TaskNotificator.class);
-    SystemPropertiesProvider systemPropertiesProvider = null;
    
     TaskManager taskManager = mock(TaskManager.class);
 
@@ -57,7 +55,7 @@ public class NodeAsyncManagerImplTest {
         nodeAsyncManager.setNodeManager(nodeManager);
         nodeAsyncManager.setTaskNotificator(taskNotificator);
         nodeAsyncManager.setTaskManager(taskManager);
-        systemPropertiesProvider = mock (SystemPropertiesProvider.class);
+        SystemPropertiesProvider systemPropertiesProvider = mock (SystemPropertiesProvider.class);
         nodeAsyncManager.setSystemPropertiesProvider(systemPropertiesProvider);
     }
 
@@ -76,16 +74,6 @@ public class NodeAsyncManagerImplTest {
         // then
         verify(nodeManager).nodeDelete(vdc, nodeName, "token");
         verify(taskManager).updateTask(task);
-    }
-
-    @Test
-    public void shouldDeleteCheckTask() throws NodeExecutionException {
-        Task task = new Task();
-        when(systemPropertiesProvider.getProperty(any(String.class))).thenReturn("http://sdc");
-        nodeAsyncManager.nodeDelete("vdc", "node", "token" , task, "");
-
-        // then
-        assertEquals(task.getResult().getHref(), "http://sdc/vdc/vdc/node/node");
     }
 
     @Test

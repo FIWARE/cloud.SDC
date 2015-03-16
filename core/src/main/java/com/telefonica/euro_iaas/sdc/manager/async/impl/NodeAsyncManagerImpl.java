@@ -97,26 +97,25 @@ public class NodeAsyncManagerImpl implements NodeAsyncManager {
      * Update the task with necessary information when the task is success.
      */
     private void updateSuccessTask(Task task, String vdc, String chefClientname) {
-        task.setResult(new TaskReference(getTaskUrl(vdc, chefClientname)));
+        String piResource = MessageFormat.format(systemPropertiesProvider.getProperty(SDC_MANAGER_URL)
+                + CHEF_NODE_BASE_PATH, vdc, chefClientname); // the product
+        task.setResult(new TaskReference(piResource));
         task.setEndTime(new Date());
         task.setStatus(TaskStates.SUCCESS);
         taskManager.updateTask(task);
     }
 
     /*
-     * Update the task with necessary information when the task is wrong and
-     * the product instance exists in the system.
+     * Update the task with necessary information when the task is wrong and the product instance exists in the system.
      */
     private void updateErrorTask(String vdc, String chefClientname, Task task, String message, Throwable t) {
+        String piResource = MessageFormat.format(systemPropertiesProvider.getProperty(SDC_MANAGER_URL)
+                + CHEF_NODE_BASE_PATH, vdc, chefClientname); // the product
 
-        task.setResult(new TaskReference(getTaskUrl(vdc, chefClientname)));
+        task.setResult(new TaskReference(piResource));
         updateErrorTask(task, message, t);
     }
 
-    private String getTaskUrl(String vdc, String chefClientName) {
-        return MessageFormat.format(systemPropertiesProvider.getProperty(SDC_MANAGER_URL)
-            + CHEF_NODE_BASE_PATH, chefClientName, vdc);
-    }
     /*
      * Update the task with necessary information when the task is wrong.
      */
