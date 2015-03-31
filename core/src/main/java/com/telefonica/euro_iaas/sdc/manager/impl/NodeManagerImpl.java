@@ -61,6 +61,7 @@ import com.telefonica.euro_iaas.sdc.manager.NodeManager;
 import com.telefonica.euro_iaas.sdc.model.ProductInstance;
 import com.telefonica.euro_iaas.sdc.model.dto.ChefClient;
 import com.telefonica.euro_iaas.sdc.model.dto.ChefNode;
+import com.telefonica.euro_iaas.sdc.model.dto.NodeDto;
 import com.telefonica.euro_iaas.sdc.util.HttpsClient;
 
 /**
@@ -79,6 +80,10 @@ public class NodeManagerImpl implements NodeManager {
     private static Logger puppetLog = LoggerFactory.getLogger(InstallatorPuppetImpl.class);
     private static Logger chefLog = LoggerFactory.getLogger(InstallatorChefImpl.class);
 
+    private static int HTTP_OK = 200;
+    private static int HTTP_NOT_FOUND = 404;
+    private static int HTTP_NO_IMPLEMENTED = 405;
+
     /*
      * (non-Javadoc)
      * 
@@ -89,28 +94,41 @@ public class NodeManagerImpl implements NodeManager {
     public void nodeDelete(String vdc, String nodeName, String token) throws NodeExecutionException {
 
         log.info("deleting node");
+        boolean errorChef = false;
+        boolean errorPuppet = false;
         try {
-
             puppetDelete(vdc, nodeName, token);
-            chefClientDelete(vdc, nodeName, token);
-
-        } catch (ChefClientExecutionException e) {
-            throw new NodeExecutionException(e);
+        } catch (Exception e) {
+            log.warn("The node cannot be deleted in Puppet master");
+            errorPuppet = true;
         }
 
+        try {
+            chefClientDelete(vdc, nodeName, token);
+        } catch (Exception e2) {
+            log.warn("The node cannot be deleted in Chef-server");
+            errorChef = true;
+        }
+
+        if (errorPuppet && errorChef) {
+            throw new NodeExecutionException ("Error to delete the node " + nodeName);
+        }
+
+    }
+
+    /**
+     * It deletes the productInstances which correspond to the node.
+     * @param nodeName
+     * @throws EntityNotFoundException
+     */
+    public void deleteProductsInNode(String nodeName) throws EntityNotFoundException {
         List<ProductInstance> productInstances = null;
 
-        // eliminacion de los productos instalados en la maquina virtual
         String hostname = nodeName.split("\\.")[0];
-        try {
-            productInstances = productInstanceDao.findByHostname(nodeName);
+        productInstances = productInstanceDao.findByHostname(hostname);
 
-            for (int i = 0; i < productInstances.size(); i++) {
-                productInstanceDao.remove(productInstances.get(i));
-            }
-        } catch (EntityNotFoundException enfe) {
-            String errorMsg = "The hostname " + hostname + " does not have products installed " + enfe.getMessage();
-            log.warn(errorMsg);
+        for (int i = 0; i < productInstances.size(); i++) {
+            productInstanceDao.remove(productInstances.get(i));
         }
 
     }
@@ -135,9 +153,9 @@ public class NodeManagerImpl implements NodeManager {
                 int statusCode;
                 statusCode = httpsClient.doHttps(HttpMethod.DELETE, deleteUrl, "", headers);
 
-                if (statusCode == 200 || statusCode == 404) { // 404 means node
-                                                              // didn't exist in
-                                                              // puppet
+                if (statusCode == HTTP_OK || statusCode == HTTP_NOT_FOUND) { // 404 means node
+                    // didn't exist in
+                    // puppet
                     log.info("Node deleted");
                 } else {
                     String msg = format("[puppet delete node] response code was: {0}", statusCode);
@@ -175,6 +193,7 @@ public class NodeManagerImpl implements NodeManager {
             String errorMsg = "Error deleting the Node" + chefClientName + " in Chef server. Description: "
                     + e.getMessage();
             chefLog.warn(errorMsg);
+            throw new ChefClientExecutionException(errorMsg, e);
         } catch (Exception e2) {
             String errorMsg = "The ChefClient " + chefClientName + " was not found in the system " + e2.getMessage();
             chefLog.info(errorMsg);
@@ -206,12 +225,13 @@ public class NodeManagerImpl implements NodeManager {
         return chefClient;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * com.telefonica.euro_iaas.sdc.manager.ChefClientManager#chefClientload
-     * (java.lang.String, java.lang.String)
+    /**
+     * It obtains the chefClient from Chef-server.
+     * @param chefClientName
+     * @param token
+     * @return
+     * @throws ChefClientExecutionException
+     * @throws EntityNotFoundException
      */
     public ChefClient chefClientload(String chefClientName, String token) throws ChefClientExecutionException,
             EntityNotFoundException {
@@ -229,6 +249,57 @@ public class NodeManagerImpl implements NodeManager {
             throw new ChefClientExecutionException(message, e);
         }
         return chefClient;
+    }
+
+    /**
+     * It obtains the node from puppet master
+     * @param nodeName
+     * @param token
+     * @param vdc
+     * @return
+     * @throws ChefClientExecutionException
+     * @throws EntityNotFoundException
+     */
+    public NodeDto puppetClientload(String nodeName, String token, String vdc) throws
+        EntityNotFoundException {
+
+        puppetLog.info("Getting node " + nodeName + " from puppet master");
+
+        String url = null;
+        NodeDto node = null;
+        try {
+            url = openStackRegion.getPuppetWrapperEndPoint(token) + "v2/node/" + nodeName;
+        } catch (OpenStackException e2) {
+            puppetLog.warn(e2.getMessage());
+        }
+
+        if (url != null) {
+            Map<String, String> headers = new HashMap<String, String>();
+            headers.put(HttpsClient.HEADER_AUTH, token);
+            headers.put(HttpsClient.HEADER_TENNANT, vdc);
+
+            try {
+                int statusCode;
+                statusCode = httpsClient.doHttps(HttpMethod.GET, url, "", headers);
+
+                //We considered no implemented
+                if (statusCode == HTTP_OK || statusCode == HTTP_NO_IMPLEMENTED) {
+                    log.info("Node obtained " + nodeName);
+                    node = new NodeDto ();
+                    node.setSoftwareName(nodeName);
+
+                } else {
+                    String msg = format("[puppet get node] response code was: {0}", statusCode);
+                    puppetLog.info(msg);
+                    throw new EntityNotFoundException(ChefClient.class, msg, nodeName);
+                }
+            } catch (Exception e) {
+                String msg = format("[puppet get node] response code was: {0}", e.getMessage());
+                puppetLog.info(e.getMessage());
+                throw new EntityNotFoundException(ChefClient.class, msg, nodeName);
+            }
+        }
+        return node;
     }
 
     /**
