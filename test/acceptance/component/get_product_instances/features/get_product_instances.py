@@ -43,7 +43,6 @@ def the_product_instance_is_returned_in_the_list(step):
     instance_id = generate_product_instance_id(world.vm_fqn, world.product_name, world.product_version)
     assert_true(world.response.ok, 'RESPONSE: {}'.format(world.response))
     
-    #response_body = xml_to_dict(world.response.content)[PRODUCT_INSTANCE_LIST][PRODUCT_INSTANCE_RES]
     response_body = response_body_to_dict(world.response, world.headers[ACCEPT_HEADER],
                                           xml_root_element_name=PRODUCT_INSTANCE_LIST)
     response_body = response_body
@@ -62,8 +61,8 @@ def the_product_instance_is_returned_in_the_list(step):
     assert_equals(product_instance[PRODUCT_INSTANCE_VM][PRODUCT_INSTANCE_VM_FQN], world.vm_fqn)
     assert_equals(product_instance[PRODUCT_INSTANCE_VM][PRODUCT_INSTANCE_VM_HOSTNAME], world.vm_hostname)
     
-    assert_equals(product_instance[PRODUCT_RELEASE][VERSION], world.product_version)
-    assert_equals(product_instance[PRODUCT_RELEASE][PRODUCT][PRODUCT_NAME], world.product_name)
+    assert_equals(product_instance[PRODUCT][VERSION], world.product_version)
+    assert_equals(product_instance[PRODUCT][PRODUCT_NAME], world.product_name)
 
 @step(u'I get the product instance details')
 def i_get_the_product_instance_details(step):
@@ -75,9 +74,8 @@ def i_get_the_product_instance_details(step):
 def the_product_instance_is_returned(step):
     assert_true(world.response.ok, 'RESPONSE: {}'.format(world.response))
 
-    #response_body = xml_to_dict(world.response.content)[PRODUCT_INSTANCE_RES]
     response_body = response_body_to_dict(world.response, world.headers[ACCEPT_HEADER],
-                                          xml_root_element_name=PRODUCT_INSTANCE_RES)
+                                          xml_root_element_name=PRODUCT_INSTANCE)
 
     assert_equals(response_body[PRODUCT_INSTANCE_NAME], world.instance_id)
     assert_true(response_body[PRODUCT_INSTANCE_STATUS] != "")
@@ -85,8 +83,8 @@ def the_product_instance_is_returned(step):
     assert_equals(response_body[PRODUCT_INSTANCE_VM][PRODUCT_INSTANCE_VM_FQN], world.vm_fqn)
     assert_equals(response_body[PRODUCT_INSTANCE_VM][PRODUCT_INSTANCE_VM_HOSTNAME], world.vm_hostname)
 
-    assert_equals(response_body[PRODUCT_RELEASE][VERSION], world.product_version)
-    assert_equals(response_body[PRODUCT_RELEASE][PRODUCT][PRODUCT_NAME], world.product_name)
+    assert_equals(response_body[PRODUCT][VERSION], world.product_version)
+    assert_equals(response_body[PRODUCT][PRODUCT_NAME], world.product_name)
 
 
 @step(u'the HTTP response code is (.*)')

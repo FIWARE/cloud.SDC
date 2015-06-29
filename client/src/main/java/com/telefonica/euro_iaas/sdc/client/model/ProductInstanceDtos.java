@@ -22,26 +22,23 @@
  * </p>
  */
 
-package com.telefonica.euro_iaas.sdc.rest.aspects;
+package com.telefonica.euro_iaas.sdc.client.model;
 
-import org.aopalliance.intercept.MethodInvocation;
-import org.apache.commons.logging.Log;
-import org.springframework.aop.interceptor.CustomizableTraceInterceptor;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+
+import com.telefonica.euro_iaas.sdc.model.dto.ProductInstanceDto;
 
 @SuppressWarnings("serial")
-public class TraceInterceptor extends CustomizableTraceInterceptor {
+@XmlRootElement
+@XmlSeeAlso({ ProductInstanceDto.class })
+public class ProductInstanceDtos extends ArrayList<ProductInstanceDto> {
 
-    protected void writeToLog(Log logger, String message, Throwable ex) {
-        if(ex!=null){
-            logger.error(ex);
-        }else if (message.contains("ENTER")) {
-            logger.debug(message);
-        } else if (message.contains("EXIT")) {
-            logger.debug(message);
-        }
-    }
-
-    protected boolean isInterceptorEnabled(MethodInvocation invocation, Log logger) {
-        return true;
+    @XmlElement(name = "productInstanceDto")
+    public List<ProductInstanceDto> getProductInstanceDtos() {
+        return this;
     }
 }

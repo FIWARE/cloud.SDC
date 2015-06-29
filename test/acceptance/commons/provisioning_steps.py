@@ -105,7 +105,7 @@ class ProvisioningSteps():
         assert_true(response.ok, 'RESPONSE: {}'.format(response))
 
         response_body = response_body_to_dict(response, world.headers[ACCEPT_HEADER],
-                                              xml_root_element_name=PRODUCT_INSTANCE_RES)
+                                              xml_root_element_name=PRODUCT_INSTANCE)
 
         assert_equals(response_body[PRODUCT_INSTANCE_NAME], world.instance_id)
         assert_true(response_body[PRODUCT_INSTANCE_STATUS] != "")
@@ -115,8 +115,20 @@ class ProvisioningSteps():
         ip_aux = "" if world.vm_ip is None else world.vm_ip
         assert_equals(response_body[PRODUCT_INSTANCE_VM][PRODUCT_INSTANCE_VM_IP], ip_aux)
 
-        assert_equals(response_body[PRODUCT_RELEASE][VERSION], world.product_version)
-        assert_equals(response_body[PRODUCT_RELEASE][PRODUCT][PRODUCT_NAME], world.product_name)
+        assert_equals(response_body[PRODUCT][VERSION], world.product_version)
+        assert_equals(response_body[PRODUCT][PRODUCT_NAME], world.product_name)
+
+        # If the instance has been created with attributes, check it.
+        if world.instance_attributes is not None:
+            # Check if attributes have got type.
+            # Else, add plain type before check it (default type)
+            for attribute in world.instance_attributes:
+                if ATTRIBUTE_TYPE not in attribute:
+                    attribute.update({ATTRIBUTE_TYPE: ATTRIBUTE_TYPE_PLAIN})
+
+            world.instance_attributes = world.instance_attributes[0] \
+                if len(world.instance_attributes) == 1 else world.instance_attributes
+            assert_equals(response_body[PRODUCT_INSTANCE_ATTRIBUTES], world.instance_attributes)
 
         world.instance_status = response_body[PRODUCT_INSTANCE_STATUS]
 
@@ -135,7 +147,7 @@ class ProvisioningSteps():
             assert_true(response.ok, 'RESPONSE: {}'.format(response))
 
             response_body = response_body_to_dict(response, world.headers[ACCEPT_HEADER],
-                                                  xml_root_element_name=PRODUCT_INSTANCE_RES)
+                                                  xml_root_element_name=PRODUCT_INSTANCE)
             world.instance_status = response_body[PRODUCT_INSTANCE_STATUS]
 
         assert_equals(world.instance_status, status)
