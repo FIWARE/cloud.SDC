@@ -27,7 +27,7 @@ and install it, using following command:
 
 ::
 
-    pip install -e "-e git+https://github.com/telefonicaid/fiware-sdc.git@master#egg=python-sdcclient&subdirectory=python-sdcclient"
+    pip install -e " git+https://github.com/telefonicaid/fiware-sdc.git@master#egg=python-sdcclient&subdirectory=python-sdcclient"
 
 
 Developed operations
