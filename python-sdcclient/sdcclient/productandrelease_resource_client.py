@@ -26,7 +26,7 @@ from utils.rest_client_utils import RestClient, API_ROOT_URL_ARG_NAME, response_
     HEADER_CONTENT_TYPE, HEADER_REPRESENTATION_XML
 from utils.logger_utils import get_logger
 
-logger = get_logger("sdcClient")
+logger = get_logger(__name__)
 
 
 #URI ELEMENT

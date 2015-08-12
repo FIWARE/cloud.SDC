@@ -29,7 +29,7 @@ from json import JSONEncoder
 from logger_utils import get_logger, log_print_request, log_print_response
 
 requests.packages.urllib3.disable_warnings()
-logger = get_logger("restClientUtils")
+logger = get_logger(__name__)
 
 
 # HEADERS
