@@ -37,7 +37,7 @@ Following operations are already implemented:
 
 **ProductAndRelease API Resource**
 
-- Get ProductAndRelease
+- Get All ProductAndRelease from SDC catalog
 
 
 Python API
@@ -47,11 +47,12 @@ An example of use of this client is:
 
 ::
 
-    from sdc_client.client import SDCClient
-    sdc_client = SDCClient(tenant_id, username, password, region_name, auth_url)
+    from sdcclient.client import SDCClient
+    sdc_client = SDCClient(user, password, tenant_id, auth_url, region_name)
+    productandrelease_client = sdc_client.getProductAndReleaseResourceClient()
 
-    response = sdc_client.getProductAndReleaseResourceClient().get_productandrelease("For testing purposes")
-    assertTrue(response.ok, "ERROR getting productandreleases {}. Response: {}".format(str(response.content)))
+    allproductreleases = productandrelease_client.get_productandrelease()
+    assertTrue(response.ok, "ERROR getting productandreleases {}. Response: {}".format(str(allproductreleases.content)))
 
 
 .. REFERENCES
