@@ -56,13 +56,13 @@ class ProductAndReleaseResourceClient(RestClient):
         self.tenant_id = tenant_id
         super(ProductAndReleaseResourceClient, self).__init__(protocol, host, port, resource=resource)
 
-    def get_productandrelease(self):
+    def get_allproductandrelease(self):
         """
         Get All ProductAndReleases
-        :return: All product and Releses from SDC Catalog
+        :return: A duple: All product and Releses from SDC Catalog as a dict, the 'Request' response
         """
         logger.info("Get all ProductAndReleases")
         response = self.get(PRODUCTANDRELEASE_RESOURCE_ROOT_URI, headers=self.headers)
         sr_response = response_body_to_dict(response, self.headers[HEADER_CONTENT_TYPE],
                                           xml_root_element_name=PRODUCTANDRELEASE_BODY_ROOT)
-        return sr_response
+        return sr_response, response
