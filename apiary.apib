@@ -1,0 +1,597 @@
+FORMAT: 1A
+HOST: https://jsapi.apiary.io/apis/fiwaresdc/reference.html
+TITLE: FIWARE-Sdc v1 Specification
+DATE: 30 July 2015
+VERSION: v1.0
+APIARY_PROJECT: fiwaresdc
+
+# Fiware-sdc
+
+<!--
+Copyright 2015 Telefónica I+D
+All Rights Reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at
+        http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.
+-->
+
+The FIWARE Software Deployment and Configuration (SDC) GE is is the key enabler used to support automated deployment (installation and configuration) of software on running virtual machines.
+As part of the complete process of deployment of applications, the aim of SDC GE is to deploy software product instances upon request of the using the SDC API or through the Cloud Portal, which in turn uses the PaaS Manager GE (see FIWARE PaaS Manager).
+
+## Editors
+
+  + Henar Muñoz Frutos, Telefónica I+D
+  + Fernando López Aguilar, Telefónica I+D
+  + Jesús Pérez González, Telefónica I+D
+
+## Copyright
+
+This specification is licensed under the
+[FIWARE Open Specification License]
+(http://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/FI-WARE_Open_Specification_Legal_Notice_%28essential_patents_license%29).
+
+## Status
+
+Final version aligned with FIWARE Release 4.
+
+# Group sdc v1
+
+
+## API Authentication
+
+All the operations in the SDC API needs to have a valid token to access it.
+To obtain the token, you need to have an account in FIWARE Lab (account.lab.fi-ware.org).
+With the credentials (username, password and tenantName) you can obtain a valid token.
+From now on, we asume that the value of your tenant-id is "your-tenant-id"
+
+## Faults
+
+The error code is returned in the body of the response for convenience.
+The message section returns a human-readable message that is appropriate for display to the end user.
+The details section is optional and may contain information—for example, a stack trace—to assist in tracking down an error.
+The detail section may or may not be appropriate for display to an end user.
+
+<table>
+    <tr><td>Fault Element</td><td>HTTP code</td><td>Description</td></tr>
+    <tr><td>Fault</td><td>500, 400, other codes possible</td><td>Error in the operation</td></tr>
+    <tr><td>serviceUnavailable</td><td>503</td><td>The service is not available</td></tr>
+    <tr><td>unauthorized</td><td>401</td><td>You are not authorized to access to that operation. The token is not correct.</td></tr>
+    <tr><td>forbidden</td><td>403</td><td>It is forbidden</td></tr>
+    <tr><td>badRequest</td><td>400</td><td>The request has not been done correctly</td></tr>
+    <tr><td>badMediaType</td><td>415</td><td>The payload media is not correct</td></tr>
+    <tr><td>itemNotFound</td><td>404</td><td>It is not exist</td></tr>
+    <tr><td>badMethod</td><td>405</td><td>Method not allowed</td></tr>
+    <tr><td>overLimit</td><td>413</td><td>Request entity too large</td></tr>
+</table>
+
+
+## Catalogue Management [/rest/catalog/product]
+
+### Get the Product List from the catalogue [GET]
+
+This operation lists all the products stored in the catalogue.
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200 (application/xml)
+
+        <products>
+            <product>
+                    <name>tomcat</name>
+                    <description>tomcat J2EE container</description>
+            </product>
+            <product>
+                    <name>mysql</name>
+                    <description>mysql</description>
+                    <attributes>
+                            <key>key1</key>
+                            <value>value1<value/>
+                            <description>description1</description>
+                    </attributes>
+                    </metadatas>
+                    <metadatas>
+                            <key>installator</key>
+                            <value>chef</value>
+                            <description>mysql installator</description>
+                    </metadatas>
+            </product>
+        <products>
+
+## Product [/rest/catalog/product/{name}]
+
++ Parameters
+
+    + name (required, string, `product1`)
+
+### Get a particular product [GET]
+
+This operation does not require a request body and returns the details of a specific product by its name.
+
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200 (application/xml)
+
+            <product>
+                <name>mysql</name>
+                <description>mysql</description>
+                <attributes>
+                        <key>key1</key>
+                        <value>value1<value/>
+                        <description>description1</description>
+                </attributes>
+                </metadatas>
+                <metadatas>
+                        <key>installator</key>
+                        <value>chef</value>
+                        <description>mysql installator</description>
+                </metadatas>
+            </product>
+            
+### Add a product [POST]
+This operation stores a new product in the catalogue.
+Arguments:
+ 
+* `name`: The name of the product
+* `description`: A description about the product.
+* `attributes`: One or many fields with key, value and description tags contains information about attributes. (e.g. port, username ...)
+* `metadatas`: One or many fields with key, value and description tags contains information about metadatas. (e.g. chef, sdc aware ...)
+
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+        
+    + Body
+        
+            <product>
+                <name>{product-name}</name>
+                <description>Description</description>
+                <attributes>
+                        <key>key1</key>
+                        <value>value1<value/>
+                        <description>description1</description>
+                </attributes>
+                <attributes>
+                        <key>key2</key>
+                        <value>value2<value/>
+                        <description>description2</description>
+                </attributes>
+                <metadatas>
+                        <key>installator</key>
+                        <value>chef</value>
+                        <description>mysql installator</description>
+                </metadatas>
+            </product>
+
++ Response 204
+
+### Delete a product [DELETE]
+
+Deletes the specified product and returns empty body
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+        
++ Response 204
+
+## Product Release [/rest/catalog/product/{name}/release]
+
++ Parameters
+
+    + name (required, string, `product1`)
+    
+### Get the Releases List of a particular Product [GET]
+This operation lists the product releases of *product name* (in URL) stored in the catalogue.
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+            
++ Response 200
+
+    
+        <productReleases>
+            <productRelease>
+                    <releaseNotes>{name} 0.6.15</releaseNotes>
+                    <version>0.6.15</version>
+                    <product>
+                            <name>{name}</name>
+                            <description>desc</description>
+                    </product>
+                    <supportedOOSS>
+                            <id>1</id>
+                            <v>0</v>
+                            <osType>94</osType>
+                            <name>Ubuntu</name>
+                            <description>Ubuntu 10.04</description>
+                            <version>10.04</version>
+                    </supportedOOSS>
+            </productRelease>
+            <productRelease>
+                    <version>0.9.0</version>
+                    <product>
+                            <name>{name}</name>
+                            <description>{name} 0.6.15</description>
+                    </product>
+                    <supportedOOSS>
+                            <id>1</id>
+                            <v>0</v>
+                            <osType>94</osType>
+                            <name>Ubuntu</name>
+                            <description>Ubuntu 10.04</description>
+                            <version>10.04</version>
+                    </supportedOOSS>
+            </productRelease>
+        </productReleases>
+
+### Add a New Release to a Product into the catalogue [POST]
+
+Add the new release with its version number to a product specified.
+Arguments:
+
+* `name`: the product name
+* `version`: the product version
+* `description`: the product description
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+            
+    + Body
+    
+            <productReleaseDto>
+                <productName>{name}</productName>
+                <version>{version}</version>
+                <productDescription>description of {product-name}-{version}/productDescription>
+            </productReleaseDto>
+
++ Response 204
+
+### Delete the Release of a Product [DELETE]
+
+Delete a release of a product
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
+
++ Response 204
+
+## Version Product Release [/rest/catalog/product/{name}/release/{version}] 
++ Parameters
+
+    + name (required, string, `product1`)
+    + version (required, string, `0.0.1`)
+
+### Get the Details of a Particular Product Release [GET]
+This operation lists the details of a Product Release.
+
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200
+
+            <productReleases>
+                <productRelease>
+                        <releaseNotes>{product-name} 0.6.15</releaseNotes>
+                        <version>0.6.15</version>
+                        <product>
+                                <name>{product-name}</name>
+                                <description>desc</description>
+                        </product>
+                        <supportedOOSS>
+                                <id>1</id>
+                                <v>0</v>
+                                <osType>94</osType>
+                                <name>Ubuntu</name>
+                                <description>Ubuntu 10.04</description>
+                                <version>10.04</version>
+                        </supportedOOSS>
+                </productRelease>
+            </productReleases>
+
+
+## Product and Releases of the catalogue [/rest/catalog/productandrelease]
+
+### Get all [GET]
+
+This operation lists all product releases stored in the Catalogue and available for users.
+
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200
+
+            <productAndReleaseDtoes>
+                <productAndReleaseDto>
+                        <product>
+                                <name>tomcat</name>
+                                <description>tomcat J2EE container</description>
+                        </product>
+                        <version>6</version>
+                </productAndReleaseDto>
+                <productAndReleaseDto>
+                        <product>
+                                <name>nodejs</name>
+                                <description>nodejs</description>
+                        </product>
+                        <version>0.6.15</version>
+                </productAndReleaseDto>
+            </productAndReleaseDtoes>
+
+## Product Instance Provisioning API [/rest/vdc/{tenant}/productInstance]
+
++ Parameters
+
+    + tenant (required, string, `your tenant id`)
+
+### Get the list of Product Instances deployed [GET]
+
+The Response obtained includes all the blueprint instances deployed
+
++ Request
+
+    + Headers
+        
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200 (application/xml)
+        
+
+            <productInstances>
+                <productInstance>
+                        <id>8790</id>
+                        <date>2014-10-30T12:49:35.528+01:00</date>
+                        <name>{productInstance-name}</name>
+                        <status>INSTALLED</status>
+                        <vm>
+                        <ip>{ip}</ip>
+                        <fqn>{fqn}</fqn>
+                        <hostname>{hostname}</hostname>
+                        </vm>
+                        <vdc>{your-tenant-id}</vdc>
+                        <productRelease>
+                                <version>{product-version}</version>
+                                <product>
+                                        <name>{product-name}</name>
+                                        <metadatas>
+                                                <key>key1</key>
+                                                <value>value1</value>
+                                                <description>desc</description>
+                                        </metadatas>
+                                </product>
+                        </productRelease>
+                </productInstance>
+            </productInstances>
+
+
+### Install product in virtual machine [POST]
+
+This call deploys a Product (existing in the catalogue) in a server for the vdc {vdc-id}.
+It request provides server features like IP are in the payload as well as the product characteristics to be installed.
+Arguments:
+ 
+* `ip`: The ip of the vm
+* `fqn`: A fully qualified name.
+* `hostname`: A hostname name.
+* `product-name`: The product name.
+* `product-version`: The product version.
+
++ Request (application/xml)
+
+    + Headers
+                
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
+    + Body
+    
+            <productInstanceDto>
+                <vm>
+                    <ip>{ip}</ip>
+                    <fqn>{fqn}</fqn>
+                    <hostname>{hostname}</hostname>
+                </vm>
+                <product>
+                    <productDescription/>
+                    <name>{product-name}</name>
+                    <version>{product-version}</version>
+                </product>
+                <attributes>
+                        <key>custom_att_02</key>
+                        <value>default_value_plain</value>
+                        <type>Plain</type>
+                </attributes>
+            </productInstanceDto>
+            
++ Response 200
+
+            <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:18.311+01:00" status="RUNNING">
+                <description>Install product {product-name} in  VM {vm}</description>
+                <vdc>your-tenant-id</vdc>
+            </task>
+            
+## Product Instance [/rest/vdc/{tenant}/productInstance/{name}]
+
++ Parameters
+
+    + tenant (required, string, `your tenant id`)
+    + name (required, string, `product1`) product instance name
+    
+### Get details of a certain Product Instance [GET]
+
+Retrieve ProductInstance created, get by name
+
++ Request
+    + Headers
+                
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200
+
+            <productInstance>
+                <id>8790</id>
+                <date>2014-10-30T12:49:35.528+01:00</date>
+                <name>mykurentoinstance-kurento-1-003237_kurento_5.0.3</name>
+                <status>INSTALLED</status>
+                <vm>
+                        <ip>130.206.126.23</ip>
+                        <hostname>mykurentoinstance-kurento-1-003237</hostname>
+                        <domain />
+                        <fqn>mykurentoinstance-kurento-1-003237</fqn>
+                        <osType />
+                </vm>
+                <vdc>{your-tenant-id}</vdc>
+                <productRelease>
+                        <version>{product-version}</version>
+                        <product>
+                                <name>{product-name}</name>
+                                <metadatas>
+                                        <key>key1</key>
+                                        <value>value1</value>
+                                        <description>desc</description>
+                                </metadatas>
+                        </product>
+                </productRelease>
+            </productInstance>
+
+### Uninstall a Product Instance [DELETE]
+
+Uninstall a product instance by <productInstanceId> in url path
+
++ Request
+    + Headers
+                
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200 (application/xml)
+
+        <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:45:44.020+01:00" status="RUNNING">
+            <description>Uninstall Product</description>
+            <vdc>your-tenant-id</vdc>
+        </task>
+
+## Node Management [/rest/vdc/{tenant}/chefClient/{name}]
+
++ Parameters
+
+    + tenant (required, string, `your tenant id`)
+    + name (required, string, `node1`) node instance name
+    
+### Load a particular node [GET]
+
+This operation lists information of a specific node.
+
++ Request
+    + Headers
+                
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200 (application/json)
+
+            {
+                "softwareName": "node1"
+            }
+            
+### Delete a particular node [DELETE]
+
+Delete a node from Chef/Puppet only if the client has some productInstances installed
+
++ Request
+    + Headers
+                
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 204
+
+## Task Management [/rest/vdc/{tenant}/task/{id}]
+
+
+The value of the status attribute could be one of the following:
+
+<table>
+    <tr>
+        <td>QUEUED</td><td>The task is queued for execution.</td>
+    </tr>
+    <tr><td>PENDING</td><td>The task is pending for approval</td></tr>
+    <tr><td>RUNNING</td><td>The task is currently running</td></tr>
+    <tr><td>SUCCESS</td><td>The task is completed successfully</td></tr>
+    <tr><td>ERROR</td><td>The task is finished but it failed</td></tr>
+   <tr><td>CANCELLED</td><td>The task has been cancelled by user</td></tr>    
+</table>
+
+
+
++ Parameters
+    + tenant (required, string) ... your tenant id
+    + id (required, string) ... task id
+
+### Get a specific task [GET]
+
+This operation recovers the status of a task created previously.
+
++ Request
+
+    + Headers
+    
+            X-Auth-Token: token-id
+            Tenant-Id: your-tenant-id
+
++ Response 200 (application/xml)
+
+            <task href="http://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{tenant}/task/{task-id}" startTime="2012-11-08T09:13:18.311+01:00" status="SUCCESS">
+                <description>Install product tomcat in  VM rhel-5200ee66c6</description>
+                <vdc>your-tenant-id</vdc>
+            </task>
+
+
+    
