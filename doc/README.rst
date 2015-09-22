@@ -19,4 +19,4 @@ Documentation
 =============
 
 -   `User and Programmers Guide <user_guide.rst>`_
--   `Installation and Administration Guide <admin_guide.rst>`_
+-   `Installation and Administration Guide <installation-guide.rst>`_
