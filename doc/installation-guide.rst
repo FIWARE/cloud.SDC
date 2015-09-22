@@ -1,6 +1,12 @@
-SDC Build and Installation
-==========================
+SDC Manager - Installation and Administration Guide 
+___________________________________________________
 
+Introduction
+============
+
+This guide defines the procedure to install the different components that build 
+up the SDC Manager GE, including its requirements and possible troubleshooting. The guide includes two different
+ways of installing SDC Manager: Installation from rpm or installation from source (building previously the rpm).
 
 Requirements
 ============
