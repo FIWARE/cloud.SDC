@@ -1,13 +1,18 @@
-FIWARE Paas Manager - Overview
+FIWARE SDC Manager - Overview
 ______________________________
 
 
 What you get
 ============
 
-The Paas manager is a generic enabler built on a proprietary solution using standard 
-interface to communicate with and so where possible this guide points to 
-the appropriate online content that has been created for this specific API. 
+The FIWARE Software Deployment and Configuration (SDC) GE is the key enabler
+used to support automated deployment (installation and configuration) of software
+on running virtual machines. As part of the complete process of deployment of applications,
+the aim of SDC GE is to deploy software product instances upon request of the
+using the SDC API or through the Cloud Portal, which in turn uses the PaaS Manager GE (see `FIWARE PaaS Manager`_).
+
+After that, users will be able to deploy artifacts, that are part of the application,
+on top of the deployed product instances.
 
 
 Documentation
