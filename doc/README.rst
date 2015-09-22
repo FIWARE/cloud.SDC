@@ -20,3 +20,8 @@ Documentation
 
 -   `User and Programmers Guide <user_guide.rst>`_
 -   `Installation and Administration Guide <installation-guide.rst>`_
+
+
+.. REFERENCES
+
+.. _FIWARE PaaS Manager: https://github.com/telefonicaid/fiware-paas
