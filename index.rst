@@ -1,4 +1,9 @@
-**# Welcome to Sagitta - SDC Manager.**
+================================
+Welcome to Sagitta - SDC Manager
+================================
+
+Introduction
+============
 
 Sagitta is a Java implementation of the SDC Manager GE developed as a part of the FIWARE platform.
 
@@ -7,5 +12,17 @@ automated deployment (installation and configuration) of software on running vir
 the complete process of deployment of applications, the aim of Sagitta is to deploy software product instances 
 upon request of the user using the API or through the Cloud Portal.
 
-`Github's <README.rst>`_ provides a good documentation summary.
-`The User and Programmers Guide <doc/user_guide.rst>`_  and `the Installation and Administration Guide <doc/installation-guide.rst>`_ cover more advanced topics.
+The SDC Manager source code can be found `here`_ 
+
+.. _here: https://github.com/telefonicaid/fiware-sdc.git
+
+This documentation offers deeper information on SDC Manager.
+
+**Documentation**
+
+.. toctree::
+   :maxdepth: 1
+
+   README
+   doc/user_guide
+   doc/installation-guide
