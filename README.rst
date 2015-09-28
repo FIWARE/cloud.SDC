@@ -25,9 +25,6 @@ public wiki:
 - `FIWARE SDC - Installation and Administration Guide`_
 - `FIWARE SDC - User and Programmers Guide`_
 
-https://github.com/telefonicaid/fiware-paas/pull/245
-
-
 GEi overall description
 =======================
 The FIWARE Software Deployment and Configuration (SDC) GE is is the key enabler
