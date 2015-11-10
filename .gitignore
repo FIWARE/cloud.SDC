@@ -20,6 +20,7 @@ rest-api/jetty.base_IS_UNDEFINED/
 python-sdcclient/.idea
 */*.iml
 *.iml
+.idea/
 
 #jetty test
 jetty.base_IS_UNDEFINED
