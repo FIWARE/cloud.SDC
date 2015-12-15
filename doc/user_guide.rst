@@ -465,7 +465,7 @@ With the URL obtained in the href in the Task, it is possible to monitor the ope
         <vdc>your-tenant-id</vdc>
     </task>
 
-Node Manegement API
+Node Management API
 -------------------
 
 **Load a particular node**
