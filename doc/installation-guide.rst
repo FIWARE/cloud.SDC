@@ -543,14 +543,14 @@ The updates of the columns are done in the following way
 
 .. code::
 
- 	su - potgres
-    postgres$ psql -U postgres -d sdc
-    Password for user postgres: <postgres-password-previously-chosen>
-    postgres=# UPDATE configuration_properties SET value='<the value>' where key='sdc_manager_url';
-    postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.user';
-    postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.pass';
-    postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.tenant';
-    postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.url';
+  su - potgres
+  postgres$ psql -U postgres -d sdc
+  Password for user postgres: <postgres-password-previously-chosen>
+  postgres=# UPDATE configuration_properties SET value='<the value>' where key='sdc_manager_url';
+  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.user';
+  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.pass';
+  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.tenant';
+  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.url';
 
 The last step is to create a sdc client in the chef-server, so that, the
 SDC can communicate with the chef-server. To do that, we can use the
@@ -869,6 +869,8 @@ CPU and I/O. For this purpose we have differentiated between:
 
 The results were obtained with a top command execution over the following machine configuration:
 
+.. code::
+
      |       Name          | Type                |
      ----------------------+----------------------
      |   Type Machine      |   Virtual Machine   |
@@ -881,10 +883,12 @@ The results were obtained with a top command execution over the following machin
 
 The results of requirements both RAM, CPU and I/O to HDD is shown in the following table:
 
+.. code::
+
      | Resource Consumption   | Low UsageType     | High Usage       |
      -------------------------+---------------------------------------
      |   RAM                  | 1GB ~ 63%         | 3GB ~ 78%        |
      |   CPU 	              | 0,8% of a 2400MHz | 90% of a 2400MHZ |
-     |   I/O HDD 	          |   6GB            | 6GB
+     |   I/O HDD              |   6GB             | 6GB              |
 
 
