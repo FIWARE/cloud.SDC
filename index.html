@@ -9,30 +9,58 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fiware-sdc</title>
+    <title>FIWARE-SDC</title>
     <link href="css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/idea.css">
     <script src="js/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/toc-resize.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/api-specification.css"> 
+    
+
 
     
 </head>
 <body id="respecDocument" class="h-entry">
 <div class="container">
+
+
   <div id="TOC-container">
     
-<section id="toc">
+<div id="fiware-logo-container">
+    <div id="fiware-logo"></div>
+</div>
+<nav id="toc">
 
-        <div id="fiware-logo"></div>
+        
     <ul class="toc">
 
+        
+	        
+        
+	        
+		        <li><a href="#API-content">FIWARE-Sdc v1 Specification</a></li>
+	        
+        
+	        
+        
+	        
+        
+	        
+        
+
+
+<li><a href="#api-summary">API Summary</a></li>
+
 
     
     
+
+
 
 
 
@@ -64,7 +92,7 @@
                               
                                 
                                     <li>
-                                        <a href="#resource_ product" title = "Resource  Product">Resource  Product</a>
+                                        <a href="#resource_product" title = "Resource  Product">Resource  Product</a>
                                         <ul class="toc  ">
                                         
                                             
@@ -97,12 +125,12 @@
 
                                         
                                             
-                                                <li><a href="#action_ add-a-new-release-to-a-product-into-the-catalogue" title ="POST -  Add a New Release to a Product into the catalogue">POST -  Add a New Release to a Product into the catalogue</a></li>
+                                                <li><a href="#action_add-a-new-release-to-a-product-into-the-catalogue" title ="POST -  Add a New Release to a Product into the catalogue">POST -  Add a New Release to a Product into the catalogue</a></li>
                                             
 
                                         
                                             
-                                                <li><a href="#action_ delete-the-release-of-a-product" title ="DELETE -  Delete the Release of a Product">DELETE -  Delete the Release of a Product</a></li>
+                                                <li><a href="#action_delete-the-release-of-a-product" title ="DELETE -  Delete the Release of a Product">DELETE -  Delete the Release of a Product</a></li>
                                             
 
                                         
@@ -149,7 +177,7 @@
 
                                         
                                             
-                                                <li><a href="#action_ install-product-in-virtual-machine" title ="POST -  Install product in virtual machine">POST -  Install product in virtual machine</a></li>
+                                                <li><a href="#action_install-product-in-virtual-machine" title ="POST -  Install product in virtual machine">POST -  Install product in virtual machine</a></li>
                                             
 
                                         
@@ -163,7 +191,7 @@
                                         <ul class="toc  ">
                                         
                                             
-                                                <li><a href="#action_ get-details-of-a-certain-product-instance" title ="GET -  Get details of a certain Product Instance">GET -  Get details of a certain Product Instance</a></li>
+                                                <li><a href="#action_get-details-of-a-certain-product-instance" title ="GET -  Get details of a certain Product Instance">GET -  Get details of a certain Product Instance</a></li>
                                             
 
                                         
@@ -224,29 +252,31 @@
     
     
     
+        <li><a href="#references">References</a></li>
+    
    </ul>
-</section>
+</nav>
 
   </div>
+  
+
+
   <div id="API-content">
   
+    
+	
+
+	
+		<h1>FIWARE-Sdc v1 Specification </h1>
 	
 
 	
 
 	
-		<h1>FIWARE-SDC v1 Specification </h1>
-	
-
-	
-
-	
 
 	
 
 
-
-	
 
 	
 
@@ -263,57 +293,60 @@
 
 
 
+
+	
+	
 	
 
 	
-		
-		<dl>
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-				<dt class="versionLabel">This version:</dt> 
-				<dd class="versionValue"> <a href="https://jsapi.apiary.io/apis/fiwaresdc/reference.htmlv1.0">
-					https://jsapi.apiary.io/apis/fiwaresdc/reference.htmlv1.0</a> </dd>
-			
-		
-			
-		
-
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-
-		<dt class="versionLabel">Latest version:</dt> 
-		<dd class="versionValue"> <a href="https://jsapi.apiary.io/apis/fiwaresdc/reference.htmllatest">https://jsapi.apiary.io/apis/fiwaresdc/reference.htmllatest</a> </dd>
-
-
-		</dl>
+	
 	
 
 	
-
+	
 	
 
 	
+	
+		
+	
+	
 
 	
+	
+	
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+  
+  
+
+
+
+  <div id="top-source-buttons">
+  	
+    	<a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference">View in Apiary</a>
+    
+    
+  </div>
 
 
 
@@ -336,9 +369,9 @@
 
 	
 		<h2 id="copyright">Copyright</h2>
-		<p>This specification is licensed under the
-[FIWARE Open Specification License]
-(http://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/FI-WARE_Open_Specification_Legal_Notice_%28essential_patents_license%29).</p>
+		<p>Copyright (c) 2015 Telefónica Investigación y Desarrollo.</p>
+<p>This specification is licensed under the
+<a href="http://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/FI-WARE_Open_Specification_Legal_Notice_%28essential_patents_license%29">FIWARE Open Specification License</a>.</p>
 	
 
 	
@@ -378,6 +411,355 @@ As part of the complete process of deployment of applications, the aim of SDC GE
 	
 
 <hr>
+  
+
+
+    
+    
+<nav class="api-summary">
+<h1 id="api-summary"> API Summary </h1>
+    <ul>
+
+
+    
+
+        <li>
+            
+                <a href="#resource_group_sdc-v1" title = "sdc v1">sdc v1</a>
+            
+            <ul>
+              
+                
+                    <li>
+                        <a href="#resource_catalogue-management" title = "Resource Catalogue Management">
+                        
+                            Catalogue Management
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-the-product-list-from-the-catalogue" title ="GET - Get the Product List from the catalogue"><span class="actionMethod">GET</span> - Get the Product List from the catalogue
+                                    
+                                        
+                                            [/rest/catalog/product]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_product" title = "Resource  Product">
+                        
+                             Product
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-a-particular-product" title ="GET - Get a particular product"><span class="actionMethod">GET</span> - Get a particular product
+                                    
+                                        
+                                            [/rest/catalog/product/{name}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                            
+                                <li>
+                                    <a href="#action_add-a-product" title ="POST - Add a product"><span class="actionMethod">POST</span> - Add a product
+                                    
+                                        
+                                            [/rest/catalog/product/{name}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                            
+                                <li>
+                                    <a href="#action_delete-a-product" title ="DELETE - Delete a product"><span class="actionMethod">DELETE</span> - Delete a product
+                                    
+                                        
+                                            [/rest/catalog/product/{name}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_product-release" title = "Resource Product Release">
+                        
+                            Product Release
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-the-releases-list-of-a-particular-product" title ="GET - Get the Releases List of a particular Product"><span class="actionMethod">GET</span> - Get the Releases List of a particular Product
+                                    
+                                        
+                                            [/rest/catalog/product/{name}/release]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                            
+                                <li>
+                                    <a href="#action_add-a-new-release-to-a-product-into-the-catalogue" title ="POST -  Add a New Release to a Product into the catalogue"><span class="actionMethod">POST</span> -  Add a New Release to a Product into the catalogue
+                                    
+                                        
+                                            [/rest/catalog/product/{name}/release]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                            
+                                <li>
+                                    <a href="#action_delete-the-release-of-a-product" title ="DELETE -  Delete the Release of a Product"><span class="actionMethod">DELETE</span> -  Delete the Release of a Product
+                                    
+                                        
+                                            [/rest/catalog/product/{name}/release]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_version-product-release" title = "Resource Version Product Release">
+                        
+                            Version Product Release
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-the-details-of-a-particular-product-release" title ="GET - Get the Details of a Particular Product Release"><span class="actionMethod">GET</span> - Get the Details of a Particular Product Release
+                                    
+                                        
+                                            [/rest/catalog/product/{name}/release/{version}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_product-and-releases-of-the-catalogue" title = "Resource Product and Releases of the catalogue">
+                        
+                            Product and Releases of the catalogue
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-all" title ="GET - Get all"><span class="actionMethod">GET</span> - Get all
+                                    
+                                        
+                                            [/rest/catalog/productandrelease]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_product-instance-provisioning-api" title = "Resource Product Instance Provisioning API">
+                        
+                            Product Instance Provisioning API
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-the-list-of-product-instances-deployed" title ="GET - Get the list of Product Instances deployed"><span class="actionMethod">GET</span> - Get the list of Product Instances deployed
+                                    
+                                        
+                                            [/rest/vdc/{tenant}/productInstance]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                            
+                                <li>
+                                    <a href="#action_install-product-in-virtual-machine" title ="POST -  Install product in virtual machine"><span class="actionMethod">POST</span> -  Install product in virtual machine
+                                    
+                                        
+                                            [/rest/vdc/{tenant}/productInstance]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_product-instance" title = "Resource Product Instance">
+                        
+                            Product Instance
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-details-of-a-certain-product-instance" title ="GET -  Get details of a certain Product Instance"><span class="actionMethod">GET</span> -  Get details of a certain Product Instance
+                                    
+                                        
+                                            [/rest/vdc/{tenant}/productInstance/{name}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                            
+                                <li>
+                                    <a href="#action_uninstall-a-product-instance" title ="DELETE - Uninstall a Product Instance"><span class="actionMethod">DELETE</span> - Uninstall a Product Instance
+                                    
+                                        
+                                            [/rest/vdc/{tenant}/productInstance/{name}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_node-management" title = "Resource Node Management">
+                        
+                            Node Management
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_load-a-particular-node" title ="GET - Load a particular node"><span class="actionMethod">GET</span> - Load a particular node
+                                    
+                                        
+                                            [/rest/vdc/{tenant}/chefClient/{name}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                            
+                                <li>
+                                    <a href="#action_delete-a-particular-node" title ="DELETE - Delete a particular node"><span class="actionMethod">DELETE</span> - Delete a particular node
+                                    
+                                        
+                                            [/rest/vdc/{tenant}/chefClient/{name}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+                
+                    <li>
+                        <a href="#resource_task-management" title = "Resource Task Management">
+                        
+                            Task Management
+                        
+                        </a>
+                        <ul class="toc  ">
+                        
+                            
+                                <li>
+                                    <a href="#action_get-a-specific-task" title ="GET - Get a specific task"><span class="actionMethod">GET</span> - Get a specific task
+                                    
+                                        
+                                            [/rest/vdc/{tenant}/task/{id}]
+                                        
+                                    
+                                    </a>
+                                </li>
+                            
+
+                        
+                        </ul>
+                    </li>
+                
+              
+            </ul>
+        </li>
+      
+
+    </ul>
+</nav>
 
     
     
@@ -425,7 +807,7 @@ As part of the complete process of deployment of applications, the aim of SDC GE
         
 	<h2>API Authentication</h2>
 <p>All the operations in the SDC API needs to have a valid token to access it.
-To obtain the token, you need to have an account in FIWARE Lab (account.lab.fi-ware.org).
+To obtain the token, you need to have an account in FIWARE Lab (<a href="http://account.lab.fi-ware.org">account.lab.fi-ware.org</a>).
 With the credentials (username, password and tenantName) you can obtain a valid token.
 From now on, we asume that the value of your tenant-id is "your-tenant-id"</p>
 <h2>Faults</h2>
@@ -447,7 +829,12 @@ The detail section may or may not be appropriate for display to an end user.</p>
 </table>
         
             <section id="resource_catalogue-management" class="resource">
-                 <div class= "header" ><h3 id="h-resource_catalogue-management">Catalogue Management [/rest/catalog/product]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_catalogue-management">Catalogue Management</h3>
+                    <span class="extra-header">[/rest/catalog/product]</span>
+                 
+                 </div>
                 
                 
                 
@@ -468,18 +855,21 @@ The detail section may or may not be appropriate for display to an end user.</p>
 
 
                     
-                        
-                            <div id="action_get-the-product-list-from-the-catalogue" class="action GET">
-                        
+                        <div id="action_get-the-product-list-from-the-catalogue" class="action GET">
 
                         
-    <h4 id="h-action_get-the-product-list-from-the-catalogue">
-        Get the Product List from the catalogue -
-        GET
+    <div class="header">
         
-            /rest/catalog/product
+            <h4 id="h-action_get-the-product-list-from-the-catalogue">Get the Product List from the catalogue </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="get-the-product-list-from-the-catalogue_body" class="">
@@ -530,7 +920,7 @@ The detail section may or may not be appropriate for display to an end user.</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_get-the-product-list-from-the-catalogue_examples">Go to example</a>
                                     </div>
@@ -547,8 +937,14 @@ The detail section may or may not be appropriate for display to an end user.</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/catalogue-management/get-the-product-list-from-the-catalogue">View in Apiary</a>
             
@@ -557,14 +953,20 @@ The detail section may or may not be appropriate for display to an end user.</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
             </section>
         
-            <section id="resource_ product" class="resource">
-                 <div class= "header" ><h3 id="h-resource_ product"> Product [/rest/catalog/product/{name}]</h3> </div>
+            <section id="resource_product" class="resource">
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_ product"> Product</h3>
+                    <span class="extra-header">[/rest/catalog/product/{name}]</span>
+                 
+                 </div>
                 
                 
                 
@@ -587,8 +989,7 @@ The detail section may or may not be appropriate for display to an end user.</p>
 	<dl>
 		
 			<dt>
-				name (Required, string
-				)
+				<span class="parameter-name">name</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -599,18 +1000,21 @@ The detail section may or may not be appropriate for display to an end user.</p>
 
 
                     
-                        
-                            <div id="action_get-a-particular-product" class="action GET">
-                        
+                        <div id="action_get-a-particular-product" class="action GET">
 
                         
-    <h4 id="h-action_get-a-particular-product">
-        Get a particular product -
-        GET
+    <div class="header">
         
-            /rest/catalog/product/{name}
+            <h4 id="h-action_get-a-particular-product">Get a particular product </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="get-a-particular-product_body" class="">
@@ -661,7 +1065,7 @@ The detail section may or may not be appropriate for display to an end user.</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_get-a-particular-product_examples">Go to example</a>
                                     </div>
@@ -678,8 +1082,14 @@ The detail section may or may not be appropriate for display to an end user.</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/ product/get-a-particular-product">View in Apiary</a>
             
@@ -688,22 +1098,26 @@ The detail section may or may not be appropriate for display to an end user.</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
-                        
-                            <div id="action_add-a-product" class="action POST">
-                        
+                        <div id="action_add-a-product" class="action POST">
 
                         
-    <h4 id="h-action_add-a-product">
-        Add a product -
-        POST
+    <div class="header">
         
-            /rest/catalog/product/{name}
+            <h4 id="h-action_add-a-product">Add a product </h4>
+            <span class="extra-header">
+		POST 
+                
+                    /rest/catalog/product/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="add-a-product_body" class="">
@@ -765,7 +1179,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_add-a-product_examples">Go to example</a>
                                     </div>
@@ -782,8 +1196,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/ product/add-a-product">View in Apiary</a>
             
@@ -792,22 +1212,26 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
-                        
-                            <div id="action_delete-a-product" class="action DELETE">
-                        
+                        <div id="action_delete-a-product" class="action DELETE">
 
                         
-    <h4 id="h-action_delete-a-product">
-        Delete a product -
-        DELETE
+    <div class="header">
         
-            /rest/catalog/product/{name}
+            <h4 id="h-action_delete-a-product">Delete a product </h4>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/catalog/product/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="delete-a-product_body" class="">
@@ -854,7 +1278,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_delete-a-product_examples">Go to example</a>
                                     </div>
@@ -871,8 +1295,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/ product/delete-a-product">View in Apiary</a>
             
@@ -881,6 +1311,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -888,7 +1319,12 @@ Arguments:</p>
             </section>
         
             <section id="resource_product-release" class="resource">
-                 <div class= "header" ><h3 id="h-resource_product-release">Product Release [/rest/catalog/product/{name}/release]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_product-release">Product Release</h3>
+                    <span class="extra-header">[/rest/catalog/product/{name}/release]</span>
+                 
+                 </div>
                 
                 
                 
@@ -911,8 +1347,7 @@ Arguments:</p>
 	<dl>
 		
 			<dt>
-				name (Required, string
-				)
+				<span class="parameter-name">name</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -923,18 +1358,21 @@ Arguments:</p>
 
 
                     
-                        
-                            <div id="action_get-the-releases-list-of-a-particular-product" class="action GET">
-                        
+                        <div id="action_get-the-releases-list-of-a-particular-product" class="action GET">
 
                         
-    <h4 id="h-action_get-the-releases-list-of-a-particular-product">
-        Get the Releases List of a particular Product -
-        GET
+    <div class="header">
         
-            /rest/catalog/product/{name}/release
+            <h4 id="h-action_get-the-releases-list-of-a-particular-product">Get the Releases List of a particular Product </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product/{name}/release
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="get-the-releases-list-of-a-particular-product_body" class="">
@@ -981,7 +1419,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_get-the-releases-list-of-a-particular-product_examples">Go to example</a>
                                     </div>
@@ -998,8 +1436,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-release/get-the-releases-list-of-a-particular-product">View in Apiary</a>
             
@@ -1008,22 +1452,26 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
-                        
-                            <div id="action_ add-a-new-release-to-a-product-into-the-catalogue" class="action POST">
-                        
+                        <div id="action_add-a-new-release-to-a-product-into-the-catalogue" class="action POST">
 
                         
-    <h4 id="h-action_ add-a-new-release-to-a-product-into-the-catalogue">
-         Add a New Release to a Product into the catalogue -
-        POST
+    <div class="header">
         
-            /rest/catalog/product/{name}/release
+            <h4 id="h-action_ add-a-new-release-to-a-product-into-the-catalogue"> Add a New Release to a Product into the catalogue </h4>
+            <span class="extra-header">
+		POST 
+                
+                    /rest/catalog/product/{name}/release
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id=" add-a-new-release-to-a-product-into-the-catalogue_body" class="">
@@ -1082,9 +1530,9 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
-                                        <a href="#action_ add-a-new-release-to-a-product-into-the-catalogue_examples">Go to example</a>
+                                        <a href="#action_add-a-new-release-to-a-product-into-the-catalogue_examples">Go to example</a>
                                     </div>
                                     
                                         
@@ -1099,8 +1547,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-release/ add-a-new-release-to-a-product-into-the-catalogue">View in Apiary</a>
             
@@ -1109,22 +1563,26 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
-                        
-                            <div id="action_ delete-the-release-of-a-product" class="action DELETE">
-                        
+                        <div id="action_delete-the-release-of-a-product" class="action DELETE">
 
                         
-    <h4 id="h-action_ delete-the-release-of-a-product">
-         Delete the Release of a Product -
-        DELETE
+    <div class="header">
         
-            /rest/catalog/product/{name}/release
+            <h4 id="h-action_ delete-the-release-of-a-product"> Delete the Release of a Product </h4>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/catalog/product/{name}/release
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id=" delete-the-release-of-a-product_body" class="">
@@ -1171,9 +1629,9 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
-                                        <a href="#action_ delete-the-release-of-a-product_examples">Go to example</a>
+                                        <a href="#action_delete-the-release-of-a-product_examples">Go to example</a>
                                     </div>
                                     
                                         
@@ -1188,8 +1646,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-release/ delete-the-release-of-a-product">View in Apiary</a>
             
@@ -1198,6 +1662,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -1205,7 +1670,12 @@ Arguments:</p>
             </section>
         
             <section id="resource_version-product-release" class="resource">
-                 <div class= "header" ><h3 id="h-resource_version-product-release">Version Product Release [/rest/catalog/product/{name}/release/{version}]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_version-product-release">Version Product Release</h3>
+                    <span class="extra-header">[/rest/catalog/product/{name}/release/{version}]</span>
+                 
+                 </div>
                 
                 
                 
@@ -1228,8 +1698,7 @@ Arguments:</p>
 	<dl>
 		
 			<dt>
-				name (Required, string
-				)
+				<span class="parameter-name">name</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -1237,8 +1706,7 @@ Arguments:</p>
 			</dd>
 		
 			<dt>
-				version (Required, string
-				)
+				<span class="parameter-name">version</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -1249,18 +1717,21 @@ Arguments:</p>
 
 
                     
-                        
-                            <div id="action_get-the-details-of-a-particular-product-release" class="action GET">
-                        
+                        <div id="action_get-the-details-of-a-particular-product-release" class="action GET">
 
                         
-    <h4 id="h-action_get-the-details-of-a-particular-product-release">
-        Get the Details of a Particular Product Release -
-        GET
+    <div class="header">
         
-            /rest/catalog/product/{name}/release/{version}
+            <h4 id="h-action_get-the-details-of-a-particular-product-release">Get the Details of a Particular Product Release </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product/{name}/release/{version}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="get-the-details-of-a-particular-product-release_body" class="">
@@ -1307,7 +1778,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_get-the-details-of-a-particular-product-release_examples">Go to example</a>
                                     </div>
@@ -1324,8 +1795,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/version-product-release/get-the-details-of-a-particular-product-release">View in Apiary</a>
             
@@ -1334,6 +1811,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -1341,7 +1819,12 @@ Arguments:</p>
             </section>
         
             <section id="resource_product-and-releases-of-the-catalogue" class="resource">
-                 <div class= "header" ><h3 id="h-resource_product-and-releases-of-the-catalogue">Product and Releases of the catalogue [/rest/catalog/productandrelease]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_product-and-releases-of-the-catalogue">Product and Releases of the catalogue</h3>
+                    <span class="extra-header">[/rest/catalog/productandrelease]</span>
+                 
+                 </div>
                 
                 
                 
@@ -1362,18 +1845,21 @@ Arguments:</p>
 
 
                     
-                        
-                            <div id="action_get-all" class="action GET">
-                        
+                        <div id="action_get-all" class="action GET">
 
                         
-    <h4 id="h-action_get-all">
-        Get all -
-        GET
+    <div class="header">
         
-            /rest/catalog/productandrelease
+            <h4 id="h-action_get-all">Get all </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/productandrelease
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="get-all_body" class="">
@@ -1420,7 +1906,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_get-all_examples">Go to example</a>
                                     </div>
@@ -1437,8 +1923,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-and-releases-of-the-catalogue/get-all">View in Apiary</a>
             
@@ -1447,6 +1939,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -1454,7 +1947,12 @@ Arguments:</p>
             </section>
         
             <section id="resource_product-instance-provisioning-api" class="resource">
-                 <div class= "header" ><h3 id="h-resource_product-instance-provisioning-api">Product Instance Provisioning API [/rest/vdc/{tenant}/productInstance]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_product-instance-provisioning-api">Product Instance Provisioning API</h3>
+                    <span class="extra-header">[/rest/vdc/{tenant}/productInstance]</span>
+                 
+                 </div>
                 
                 
                 
@@ -1477,8 +1975,7 @@ Arguments:</p>
 	<dl>
 		
 			<dt>
-				tenant (Required, string
-				)
+				<span class="parameter-name">tenant</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -1489,18 +1986,21 @@ Arguments:</p>
 
 
                     
-                        
-                            <div id="action_get-the-list-of-product-instances-deployed" class="action GET">
-                        
+                        <div id="action_get-the-list-of-product-instances-deployed" class="action GET">
 
                         
-    <h4 id="h-action_get-the-list-of-product-instances-deployed">
-        Get the list of Product Instances deployed -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance
+            <h4 id="h-action_get-the-list-of-product-instances-deployed">Get the list of Product Instances deployed </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/productInstance
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="get-the-list-of-product-instances-deployed_body" class="">
@@ -1551,7 +2051,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_get-the-list-of-product-instances-deployed_examples">Go to example</a>
                                     </div>
@@ -1568,8 +2068,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-instance-provisioning-api/get-the-list-of-product-instances-deployed">View in Apiary</a>
             
@@ -1578,22 +2084,26 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
-                        
-                            <div id="action_ install-product-in-virtual-machine" class="action POST">
-                        
+                        <div id="action_install-product-in-virtual-machine" class="action POST">
 
                         
-    <h4 id="h-action_ install-product-in-virtual-machine">
-         Install product in virtual machine -
-        POST
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance
+            <h4 id="h-action_ install-product-in-virtual-machine"> Install product in virtual machine </h4>
+            <span class="extra-header">
+		POST 
+                
+                    /rest/vdc/{tenant}/productInstance
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id=" install-product-in-virtual-machine_body" class="">
@@ -1663,9 +2173,9 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
-                                        <a href="#action_ install-product-in-virtual-machine_examples">Go to example</a>
+                                        <a href="#action_install-product-in-virtual-machine_examples">Go to example</a>
                                     </div>
                                     
                                         
@@ -1680,8 +2190,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-instance-provisioning-api/ install-product-in-virtual-machine">View in Apiary</a>
             
@@ -1690,6 +2206,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -1697,7 +2214,12 @@ Arguments:</p>
             </section>
         
             <section id="resource_product-instance" class="resource">
-                 <div class= "header" ><h3 id="h-resource_product-instance">Product Instance [/rest/vdc/{tenant}/productInstance/{name}]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_product-instance">Product Instance</h3>
+                    <span class="extra-header">[/rest/vdc/{tenant}/productInstance/{name}]</span>
+                 
+                 </div>
                 
                 
                 
@@ -1720,8 +2242,7 @@ Arguments:</p>
 	<dl>
 		
 			<dt>
-				tenant (Required, string
-				)
+				<span class="parameter-name">name</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -1729,8 +2250,7 @@ Arguments:</p>
 			</dd>
 		
 			<dt>
-				name (Required, string
-				)
+				<span class="parameter-name">tenant</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -1741,18 +2261,21 @@ Arguments:</p>
 
 
                     
-                        
-                            <div id="action_ get-details-of-a-certain-product-instance" class="action GET">
-                        
+                        <div id="action_get-details-of-a-certain-product-instance" class="action GET">
 
                         
-    <h4 id="h-action_ get-details-of-a-certain-product-instance">
-         Get details of a certain Product Instance -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance/{name}
+            <h4 id="h-action_ get-details-of-a-certain-product-instance"> Get details of a certain Product Instance </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/productInstance/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id=" get-details-of-a-certain-product-instance_body" class="">
@@ -1799,9 +2322,9 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
-                                        <a href="#action_ get-details-of-a-certain-product-instance_examples">Go to example</a>
+                                        <a href="#action_get-details-of-a-certain-product-instance_examples">Go to example</a>
                                     </div>
                                     
                                         
@@ -1816,8 +2339,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-instance/ get-details-of-a-certain-product-instance">View in Apiary</a>
             
@@ -1826,22 +2355,26 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
-                        
-                            <div id="action_uninstall-a-product-instance" class="action DELETE">
-                        
+                        <div id="action_uninstall-a-product-instance" class="action DELETE">
 
                         
-    <h4 id="h-action_uninstall-a-product-instance">
-        Uninstall a Product Instance -
-        DELETE
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance/{name}
+            <h4 id="h-action_uninstall-a-product-instance">Uninstall a Product Instance </h4>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/vdc/{tenant}/productInstance/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="uninstall-a-product-instance_body" class="">
@@ -1892,7 +2425,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_uninstall-a-product-instance_examples">Go to example</a>
                                     </div>
@@ -1909,8 +2442,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/product-instance/uninstall-a-product-instance">View in Apiary</a>
             
@@ -1919,6 +2458,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -1926,7 +2466,12 @@ Arguments:</p>
             </section>
         
             <section id="resource_node-management" class="resource">
-                 <div class= "header" ><h3 id="h-resource_node-management">Node Management [/rest/vdc/{tenant}/chefClient/{name}]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_node-management">Node Management</h3>
+                    <span class="extra-header">[/rest/vdc/{tenant}/chefClient/{name}]</span>
+                 
+                 </div>
                 
                 
                 
@@ -1949,8 +2494,7 @@ Arguments:</p>
 	<dl>
 		
 			<dt>
-				tenant (Required, string
-				)
+				<span class="parameter-name">name</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -1958,8 +2502,7 @@ Arguments:</p>
 			</dd>
 		
 			<dt>
-				name (Required, string
-				)
+				<span class="parameter-name">tenant</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
 				
@@ -1970,18 +2513,21 @@ Arguments:</p>
 
 
                     
-                        
-                            <div id="action_load-a-particular-node" class="action GET">
-                        
+                        <div id="action_load-a-particular-node" class="action GET">
 
                         
-    <h4 id="h-action_load-a-particular-node">
-        Load a particular node -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/chefClient/{name}
+            <h4 id="h-action_load-a-particular-node">Load a particular node </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/chefClient/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="load-a-particular-node_body" class="">
@@ -2032,7 +2578,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_load-a-particular-node_examples">Go to example</a>
                                     </div>
@@ -2049,8 +2595,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/node-management/load-a-particular-node">View in Apiary</a>
             
@@ -2059,22 +2611,26 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
                     
-                        
-                            <div id="action_delete-a-particular-node" class="action DELETE">
-                        
+                        <div id="action_delete-a-particular-node" class="action DELETE">
 
                         
-    <h4 id="h-action_delete-a-particular-node">
-        Delete a particular node -
-        DELETE
+    <div class="header">
         
-            /rest/vdc/{tenant}/chefClient/{name}
+            <h4 id="h-action_delete-a-particular-node">Delete a particular node </h4>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/vdc/{tenant}/chefClient/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="delete-a-particular-node_body" class="">
@@ -2121,7 +2677,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_delete-a-particular-node_examples">Go to example</a>
                                     </div>
@@ -2138,8 +2694,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/node-management/delete-a-particular-node">View in Apiary</a>
             
@@ -2148,6 +2710,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -2155,7 +2718,12 @@ Arguments:</p>
             </section>
         
             <section id="resource_task-management" class="resource">
-                 <div class= "header" ><h3 id="h-resource_task-management">Task Management [/rest/vdc/{tenant}/task/{id}]</h3> </div>
+                 <div class= "header" >
+                 
+                    <h3 id="h-resource_task-management">Task Management</h3>
+                    <span class="extra-header">[/rest/vdc/{tenant}/task/{id}]</span>
+                 
+                 </div>
                 <p>The value of the status attribute could be one of the following:</p>
 <table>
     <tr>
@@ -2188,20 +2756,18 @@ Arguments:</p>
 	<dl>
 		
 			<dt>
-				tenant (Required, string
-				)
+				<span class="parameter-name">id</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
-				your tenant id
+				task id
 				
 			</dd>
 		
 			<dt>
-				id (Required, string
-				)
+				<span class="parameter-name">tenant</span> <span class="parameter-attributes">(Required, string)</span>
 			</dt>
 			<dd>
-				task id
+				your tenant id
 				
 			</dd>
 		
@@ -2209,18 +2775,21 @@ Arguments:</p>
 
 
                     
-                        
-                            <div id="action_get-a-specific-task" class="action GET">
-                        
+                        <div id="action_get-a-specific-task" class="action GET">
 
                         
-    <h4 id="h-action_get-a-specific-task">
-        Get a specific task -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/task/{id}
+            <h4 id="h-action_get-a-specific-task">Get a specific task </h4>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/task/{id}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
         
                             <div id="get-a-specific-task_body" class="">
@@ -2271,7 +2840,7 @@ Arguments:</p>
 </div>
         	                            
                                     
-                                    
+                                    <div>
                                     <div class="goExample">
                                         <a href="#action_get-a-specific-task_examples">Go to example</a>
                                     </div>
@@ -2288,8 +2857,14 @@ Arguments:</p>
         
     
         
-    
-        
+            
+                
+            
+            
+
+            
+                
+            
             
                 <a target="_blank" href="http://docs.fiwaresdc.apiary.io/#reference/sdc-v1/task-management/get-a-specific-task">View in Apiary</a>
             
@@ -2298,6 +2873,7 @@ Arguments:</p>
     </div>
 
                                     
+                                    </div>
                                 
                             </div>
                         </div>
@@ -2316,37 +2892,46 @@ Arguments:</p>
 
                 
                     <section id="resource_catalogue-management_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_catalogue-management_example">Catalogue Management [/rest/catalog/product]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_catalogue-management_example">Catalogue Management</h4>
+                            <span class="extra-header">[/rest/catalog/product]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
+                           
 
                             
                                 <div id="action_get-the-product-list-from-the-catalogue_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_get-the-product-list-from-the-catalogue_examples">
-        Get the Product List from the catalogue -
-        GET
+    <div class="header">
         
-            /rest/catalog/product
+            <h5 id="h-action_get-the-product-list-from-the-catalogue_examples">Get the Product List from the catalogue </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_get-the-product-list-from-the-catalogue_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -2474,51 +3059,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_ product_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_ product_example"> Product [/rest/catalog/product/{name}]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_ product_example"> Product</h4>
+                            <span class="extra-header">[/rest/catalog/product/{name}]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
-	<span class="parameters-title">Parameters</span>
-	<dl>
-		
-			<dt>
-				name (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-	</dl>
-
+                           
 
                             
                                 <div id="action_get-a-particular-product_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_get-a-particular-product_examples">
-        Get a particular product -
-        GET
+    <div class="header">
         
-            /rest/catalog/product/{name}
+            <h5 id="h-action_get-a-particular-product_examples">Get a particular product </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_get-a-particular-product_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -2640,21 +3220,25 @@ Tenant-Id: your-tenant-id</code></pre>
                                 <div id="action_add-a-product_examples" class="actionExample POST">
 
                                     
-    <h4 id="h-action_add-a-product_examples">
-        Add a product -
-        POST
+    <div class="header">
         
-            /rest/catalog/product/{name}
+            <h5 id="h-action_add-a-product_examples">Add a product </h5>
+            <span class="extra-header">
+		POST 
+                
+                    /rest/catalog/product/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_add-a-product_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -2702,12 +3286,12 @@ Tenant-Id: your-tenant-id</code></pre>
     &lt;description>Description&lt;/description>
     &lt;attributes>
             &lt;key>key1&lt;/key>
-            &lt;value>value1&lt;value/>
+            &lt;value>value1&lt;/value>
             &lt;description>description1&lt;/description>
     &lt;/attributes>
     &lt;attributes>
             &lt;key>key2&lt;/key>
-            &lt;value>value2&lt;value/>
+            &lt;value>value2&lt;/value>
             &lt;description>description2&lt;/description>
     &lt;/attributes>
     &lt;metadatas>
@@ -2768,21 +3352,25 @@ Tenant-Id: your-tenant-id</code></pre>
                                 <div id="action_delete-a-product_examples" class="actionExample DELETE">
 
                                     
-    <h4 id="h-action_delete-a-product_examples">
-        Delete a product -
-        DELETE
+    <div class="header">
         
-            /rest/catalog/product/{name}
+            <h5 id="h-action_delete-a-product_examples">Delete a product </h5>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/catalog/product/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_delete-a-product_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -2874,51 +3462,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_product-release_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_product-release_example">Product Release [/rest/catalog/product/{name}/release]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_product-release_example">Product Release</h4>
+                            <span class="extra-header">[/rest/catalog/product/{name}/release]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
-	<span class="parameters-title">Parameters</span>
-	<dl>
-		
-			<dt>
-				name (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-	</dl>
-
+                           
 
                             
                                 <div id="action_get-the-releases-list-of-a-particular-product_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_get-the-releases-list-of-a-particular-product_examples">
-        Get the Releases List of a particular Product -
-        GET
+    <div class="header">
         
-            /rest/catalog/product/{name}/release
+            <h5 id="h-action_get-the-releases-list-of-a-particular-product_examples">Get the Releases List of a particular Product </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product/{name}/release
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_get-the-releases-list-of-a-particular-product_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -3043,24 +3626,28 @@ Tenant-Id: your-tenant-id</code></pre>
                                     </div>
                                 </div>
                             
-                                <div id="action_ add-a-new-release-to-a-product-into-the-catalogue_examples" class="actionExample POST">
+                                <div id="action_add-a-new-release-to-a-product-into-the-catalogue_examples" class="actionExample POST">
 
                                     
-    <h4 id="h-action_ add-a-new-release-to-a-product-into-the-catalogue_examples">
-         Add a New Release to a Product into the catalogue -
-        POST
+    <div class="header">
         
-            /rest/catalog/product/{name}/release
+            <h5 id="h-action_ add-a-new-release-to-a-product-into-the-catalogue_examples"> Add a New Release to a Product into the catalogue </h5>
+            <span class="extra-header">
+		POST 
+                
+                    /rest/catalog/product/{name}/release
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_ add-a-new-release-to-a-product-into-the-catalogue_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -3152,29 +3739,33 @@ Tenant-Id: your-tenant-id</code></pre>
                                                 
                                             
                                             <div class="goActions">
-                                                <a href="#action_ add-a-new-release-to-a-product-into-the-catalogue">Go to specification</a>
+                                                <a href="#action_add-a-new-release-to-a-product-into-the-catalogue">Go to specification</a>
                                             </div>
                                     </div>
                                 </div>
                             
-                                <div id="action_ delete-the-release-of-a-product_examples" class="actionExample DELETE">
+                                <div id="action_delete-the-release-of-a-product_examples" class="actionExample DELETE">
 
                                     
-    <h4 id="h-action_ delete-the-release-of-a-product_examples">
-         Delete the Release of a Product -
-        DELETE
+    <div class="header">
         
-            /rest/catalog/product/{name}/release
+            <h5 id="h-action_ delete-the-release-of-a-product_examples"> Delete the Release of a Product </h5>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/catalog/product/{name}/release
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_ delete-the-release-of-a-product_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -3258,7 +3849,7 @@ Tenant-Id: your-tenant-id</code></pre>
                                                 
                                             
                                             <div class="goActions">
-                                                <a href="#action_ delete-the-release-of-a-product">Go to specification</a>
+                                                <a href="#action_delete-the-release-of-a-product">Go to specification</a>
                                             </div>
                                     </div>
                                 </div>
@@ -3266,60 +3857,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_version-product-release_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_version-product-release_example">Version Product Release [/rest/catalog/product/{name}/release/{version}]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_version-product-release_example">Version Product Release</h4>
+                            <span class="extra-header">[/rest/catalog/product/{name}/release/{version}]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
-	<span class="parameters-title">Parameters</span>
-	<dl>
-		
-			<dt>
-				name (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-			<dt>
-				version (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-	</dl>
-
+                           
 
                             
                                 <div id="action_get-the-details-of-a-particular-product-release_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_get-the-details-of-a-particular-product-release_examples">
-        Get the Details of a Particular Product Release -
-        GET
+    <div class="header">
         
-            /rest/catalog/product/{name}/release/{version}
+            <h5 id="h-action_get-the-details-of-a-particular-product-release_examples">Get the Details of a Particular Product Release </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/product/{name}/release/{version}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_get-the-details-of-a-particular-product-release_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -3432,37 +4009,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_product-and-releases-of-the-catalogue_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_product-and-releases-of-the-catalogue_example">Product and Releases of the catalogue [/rest/catalog/productandrelease]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_product-and-releases-of-the-catalogue_example">Product and Releases of the catalogue</h4>
+                            <span class="extra-header">[/rest/catalog/productandrelease]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
+                           
 
                             
                                 <div id="action_get-all_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_get-all_examples">
-        Get all -
-        GET
+    <div class="header">
         
-            /rest/catalog/productandrelease
+            <h5 id="h-action_get-all_examples">Get all </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/catalog/productandrelease
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_get-all_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -3573,51 +4159,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_product-instance-provisioning-api_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_product-instance-provisioning-api_example">Product Instance Provisioning API [/rest/vdc/{tenant}/productInstance]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_product-instance-provisioning-api_example">Product Instance Provisioning API</h4>
+                            <span class="extra-header">[/rest/vdc/{tenant}/productInstance]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
-	<span class="parameters-title">Parameters</span>
-	<dl>
-		
-			<dt>
-				tenant (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-	</dl>
-
+                           
 
                             
                                 <div id="action_get-the-list-of-product-instances-deployed_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_get-the-list-of-product-instances-deployed_examples">
-        Get the list of Product Instances deployed -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance
+            <h5 id="h-action_get-the-list-of-product-instances-deployed_examples">Get the list of Product Instances deployed </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/productInstance
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_get-the-list-of-product-instances-deployed_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -3746,24 +4327,28 @@ Tenant-Id: your-tenant-id</code></pre>
                                     </div>
                                 </div>
                             
-                                <div id="action_ install-product-in-virtual-machine_examples" class="actionExample POST">
+                                <div id="action_install-product-in-virtual-machine_examples" class="actionExample POST">
 
                                     
-    <h4 id="h-action_ install-product-in-virtual-machine_examples">
-         Install product in virtual machine -
-        POST
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance
+            <h5 id="h-action_ install-product-in-virtual-machine_examples"> Install product in virtual machine </h5>
+            <span class="extra-header">
+		POST 
+                
+                    /rest/vdc/{tenant}/productInstance
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_ install-product-in-virtual-machine_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -3881,7 +4466,7 @@ Tenant-Id: your-tenant-id</code></pre>
                                                 
                                             
                                             <div class="goActions">
-                                                <a href="#action_ install-product-in-virtual-machine">Go to specification</a>
+                                                <a href="#action_install-product-in-virtual-machine">Go to specification</a>
                                             </div>
                                     </div>
                                 </div>
@@ -3889,60 +4474,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_product-instance_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_product-instance_example">Product Instance [/rest/vdc/{tenant}/productInstance/{name}]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_product-instance_example">Product Instance</h4>
+                            <span class="extra-header">[/rest/vdc/{tenant}/productInstance/{name}]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
-	<span class="parameters-title">Parameters</span>
-	<dl>
-		
-			<dt>
-				tenant (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-			<dt>
-				name (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-	</dl>
-
+                           
 
                             
-                                <div id="action_ get-details-of-a-certain-product-instance_examples" class="actionExample GET">
+                                <div id="action_get-details-of-a-certain-product-instance_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_ get-details-of-a-certain-product-instance_examples">
-         Get details of a certain Product Instance -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance/{name}
+            <h5 id="h-action_ get-details-of-a-certain-product-instance_examples"> Get details of a certain Product Instance </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/productInstance/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_ get-details-of-a-certain-product-instance_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -4054,7 +4625,7 @@ Tenant-Id: your-tenant-id</code></pre>
                                                 
                                             
                                             <div class="goActions">
-                                                <a href="#action_ get-details-of-a-certain-product-instance">Go to specification</a>
+                                                <a href="#action_get-details-of-a-certain-product-instance">Go to specification</a>
                                             </div>
                                     </div>
                                 </div>
@@ -4062,21 +4633,25 @@ Tenant-Id: your-tenant-id</code></pre>
                                 <div id="action_uninstall-a-product-instance_examples" class="actionExample DELETE">
 
                                     
-    <h4 id="h-action_uninstall-a-product-instance_examples">
-        Uninstall a Product Instance -
-        DELETE
+    <div class="header">
         
-            /rest/vdc/{tenant}/productInstance/{name}
+            <h5 id="h-action_uninstall-a-product-instance_examples">Uninstall a Product Instance </h5>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/vdc/{tenant}/productInstance/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_uninstall-a-product-instance_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -4187,60 +4762,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_node-management_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_node-management_example">Node Management [/rest/vdc/{tenant}/chefClient/{name}]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_node-management_example">Node Management</h4>
+                            <span class="extra-header">[/rest/vdc/{tenant}/chefClient/{name}]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
-	<span class="parameters-title">Parameters</span>
-	<dl>
-		
-			<dt>
-				tenant (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-			<dt>
-				name (Required, string
-				)
-			</dt>
-			<dd>
-				
-				
-			</dd>
-		
-	</dl>
-
+                           
 
                             
                                 <div id="action_load-a-particular-node_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_load-a-particular-node_examples">
-        Load a particular node -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/chefClient/{name}
+            <h5 id="h-action_load-a-particular-node_examples">Load a particular node </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/chefClient/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_load-a-particular-node_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -4350,21 +4911,25 @@ Tenant-Id: your-tenant-id</code></pre>
                                 <div id="action_delete-a-particular-node_examples" class="actionExample DELETE">
 
                                     
-    <h4 id="h-action_delete-a-particular-node_examples">
-        Delete a particular node -
-        DELETE
+    <div class="header">
         
-            /rest/vdc/{tenant}/chefClient/{name}
+            <h5 id="h-action_delete-a-particular-node_examples">Delete a particular node </h5>
+            <span class="extra-header">
+		DELETE 
+                
+                    /rest/vdc/{tenant}/chefClient/{name}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_delete-a-particular-node_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -4456,60 +5021,46 @@ Tenant-Id: your-tenant-id</code></pre>
                     </section>
             
                     <section id="resource_task-management_example" class="resourceExample">
-                         <div class= "header" ><h4 id="h-resource_task-management_example">Task Management [/rest/vdc/{tenant}/task/{id}]</h4></div>
-                            
-                            
-                            
+                         <div class= "header" >
+                         
+                            <h4 id="h-resource_task-management_example">Task Management</h4>
+                            <span class="extra-header">[/rest/vdc/{tenant}/task/{id}]</span>
+                         
+                         </div>
 
                             
                             
                             
 
                             
+                            
+                            
 
-	<span class="parameters-title">Parameters</span>
-	<dl>
-		
-			<dt>
-				tenant (Required, string
-				)
-			</dt>
-			<dd>
-				your tenant id
-				
-			</dd>
-		
-			<dt>
-				id (Required, string
-				)
-			</dt>
-			<dd>
-				task id
-				
-			</dd>
-		
-	</dl>
-
+                           
 
                             
                                 <div id="action_get-a-specific-task_examples" class="actionExample GET">
 
                                     
-    <h4 id="h-action_get-a-specific-task_examples">
-        Get a specific task -
-        GET
+    <div class="header">
         
-            /rest/vdc/{tenant}/task/{id}
+            <h5 id="h-action_get-a-specific-task_examples">Get a specific task </h5>
+            <span class="extra-header">
+		GET 
+                
+                    /rest/vdc/{tenant}/task/{id}
+                
+            </span>
         
-    </h4>
+
+    </div>
 
                 
                                     <div id="action_get-a-specific-task_body" class=""> 
                                         
                                         
                                         
-                                        
-         
+                                                 
                                         
                                             
                                             
@@ -4640,7 +5191,19 @@ Tenant-Id: your-tenant-id</code></pre>
     
     
     
+      <section id="references">
+      <h1>References</h1>
+          <ul>
+              
+                  <li><a href="http://forge.fiware.org/plugins/mediawiki/wiki/fiware/index.php/FI-WARE_Open_Specification_Legal_Notice_%28essential_patents_license%29">FIWARE Open Specification License</a></li>
+              
+                  <li><a href="http://account.lab.fi-ware.org">account.lab.fi-ware.org</a></li>
+              
+          </ul>
+      </section>
+    
   </div>
 </div>
 </body>
+
 </html>
