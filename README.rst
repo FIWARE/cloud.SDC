@@ -1,5 +1,6 @@
+.. _Top:
 ====================
-FIWARE SDC | Saggita
+FIWARE SDC | Sagitta
 ====================
 
 | |Build Status| |Coverage Status| |help stackoverflow|
@@ -8,7 +9,7 @@ FIWARE SDC | Saggita
 
 Introduction
 ============
-This is the code repository for FIWARE Saggita, the reference implementation
+This is the code repository for FIWARE Sagitta, the reference implementation
 of the Software Deployment and Configuration GE.
 
 This project is part of FIWARE_. Check also the
@@ -25,6 +26,9 @@ public wiki:
 - `FIWARE SDC - Installation and Administration Guide`_
 - `FIWARE SDC - User and Programmers Guide`_
 
+Top_
+
+
 GEi overall description
 =======================
 The FIWARE Software Deployment and Configuration (SDC) GE is is the key enabler
@@ -35,6 +39,9 @@ using the SDC API or through the Cloud Portal, which in turn uses the PaaS Manag
 
 After that, users will be able to deploy artifacts, that are part of the application,
 on top of the deployed product instances.
+
+Top_
+
 
 Build and Install
 =================
@@ -110,6 +117,9 @@ The script will ask you the following data to configure the configuration proper
 - the admin keystone user for the authentication process
 - the admin password for the authentication process
 
+Top_
+
+
 Running
 =======
 
@@ -171,6 +181,8 @@ In order to check the status of the service, use the following command
 
     $ service fiware-sdc status
 
+Top_
+
 
 API Overview
 ============
@@ -190,6 +202,8 @@ API Reference Documentation
 ---------------------------
 
 - `FIWARE SDC v1 (Apiary) <https://jsapi.apiary.io/apis/fiwaresdc/reference.html>`_
+
+Top_
 
 
 Testing
@@ -243,6 +257,8 @@ the option -k should be included in the case you have not changed the security c
 If you obtain a 401 as a response, please check the admin credentials and the connectivity from the sdc machine
 to the keystone (openstack-tcloud.keystone.url in configuration_properties table)
 
+Top_
+
 
 Advanced topics
 ===============
@@ -255,6 +271,16 @@ Advanced topics
 
 - `User and programmers guide <doc/user_guide.rst>`_
 
+Top_
+
+
+Support
+=======
+
+Ask your thorough programming questions using `stackoverflow`_ and your general questions on `FIWARE Q&A`_.
+In both cases please use the tag `fiware-sagitta`
+
+Top_
 
 
 License
@@ -262,6 +288,7 @@ License
 
 \(c) 2013-2015 Telefónica I+D, Apache License 2.0
 
+Top_
 
 
 .. REFERENCES
@@ -287,4 +314,4 @@ License
 .. |Coverage Status| image:: https://coveralls.io/repos/telefonicaid/fiware-sdc/badge.png?branch=develop
    :target: https://coveralls.io/r/telefonicaid/fiware-sdc
 .. |help stackoverflow| image:: http://b.repl.ca/v1/help-stackoverflow-orange.png
-   :target: http://www.stackoverflow.com
+   :target: https://stackoverflow.com/questions/tagged/fiware-sagitta
