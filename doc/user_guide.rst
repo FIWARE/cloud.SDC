@@ -24,7 +24,8 @@ With the credentials (username, password and tenantName) you can obtain a valid 
 
     $ curl -v -H "Content-Type: application json" -H "Accept: application/json" -X
     POST "http://cloud.lab.fi-ware.org:4731/v2.0/tokens" -d '{"auth":{"tenantName":
-    "your-tenant-id","passwordCredentials":{"username":"youruser","password":"yourpassword"}}}'
+    "your-tenant-id","passwordCredentials":{"username":"youruser",
+    "password":"yourpassword"}}}'
 
 You will receive the following answer, with a valid token (id).
 
@@ -100,7 +101,8 @@ This operation lists all the products stored in the catalogue. The following exa
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id"
-	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product/{product-name}"
+	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog
+	/product/{product-name}"
 
 This operation lists the environments stored in the catalogue. The following example shows an XML response for the list Environment API operation. It is possible to see it contains a list of tiers including products to be installed.
 	
@@ -129,7 +131,8 @@ This operation lists the environments stored in the catalogue. The following exa
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X POST "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product/{product-name}"
+	-X POST "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog
+	/product/{product-name}"
 
 with the following payload (with metadatas and attributes)
 
@@ -157,7 +160,8 @@ with the following payload (with metadatas and attributes)
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product/{product-name}"
+	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog
+	/product/{product-name}"
 
 Product Release API
 -------------------
@@ -168,7 +172,8 @@ Product Release API
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id"
-	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product/{product-name}/release"
+	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog
+	/product/{product-name}/release"
 
 This operation lists the product releases of {product-name} stored in the catalogue. The following example shows an XML response for the list of ProductRelease API operation.
 	
@@ -215,7 +220,8 @@ This operation lists the product releases of {product-name} stored in the catalo
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id"
-	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product/{product-name}/release/{version}"
+	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog
+	/product/{product-name}/release/{version}"
 
 This operation lists the details of a Product Release.
 	
@@ -247,7 +253,8 @@ This operation lists the details of a Product Release.
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X POST "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product/{product-name}/release"
+	-X POST "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog
+	/product/{product-name}/release"
 
 with the following payload
 
@@ -265,7 +272,8 @@ with the following payload
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product/{product-name}/release"
+	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog
+	/product/{product-name}/release"
 
 
 **Get All Product and Releases of the catalogue**
@@ -308,7 +316,8 @@ Product Instance Provisioning API
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X POST "http://saggita.lab.fi-ware.org:8080/sdc/rest/vdc/{your-tenant-id}/productInstance"
+	-X POST "http://saggita.lab.fi-ware.org:8080/sdc/rest/vdc
+	/{your-tenant-id}/productInstance"
 
 where {your-tenant-id} is the tenant-id in this guide. The payload of this request can be as follows:
 
@@ -337,7 +346,9 @@ The response obatined should be:
 .. code::
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:18.311+01:00" status="RUNNING">
+        <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+        /{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:18.311+01:00"
+        status="RUNNING">
         <description>Install product {product-name} in  VM {vm}</description>
         <vdc>your-tenant-id</vdc>
     </task>
@@ -348,7 +359,9 @@ the task status should be SUCCESS.
 .. code::
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:28.311+01:00" status="SUCCESS">
+        <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+        /{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:28.311+01:00"
+         status="SUCCESS">
         <description>Install product {product-name} in  VM {vm}</description>
         <vdc>your-tenant-id</vdc>
     </task>
@@ -360,7 +373,8 @@ the task status should be SUCCESS.
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/productInstance"
+	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+	/{your-tenant-id}/productInstance"
 
 The Response obtained includes all the blueprint instances deployed
 
@@ -403,7 +417,8 @@ The Response obtained includes all the blueprint instances deployed
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/productInstance/{productInstance-name}"
+	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+	/{your-tenant-id}/productInstance/{productInstance-name}"
 	
 This operation does not require any payload in the request and provides a BlueprintInstance XML response. 
 
@@ -443,14 +458,17 @@ This operation does not require any payload in the request and provides a Bluepr
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/productInstance/{productInstance-name}"
+	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+	/{your-tenant-id}/productInstance/{productInstance-name}"
 
 This operation does not require a request body and returns the details of a generated task. 
 
 .. code::	
 	
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:45:44.020+01:00" status="RUNNING">
+    <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+    /{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:45:44.020+01:00"
+     status="RUNNING">
         <description>Uninstall Product</description>
         <vdc>your-tenant-id</vdc>
     </task>
@@ -460,7 +478,9 @@ With the URL obtained in the href in the Task, it is possible to monitor the ope
 .. code::
 	
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest//vdc/{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:19.567+01:00" status="SUCCESS">
+    <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest//vdc
+    /{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:19.567+01:00"
+     status="SUCCESS">
         <description>Unistall product {product-name}</description>
         <vdc>your-tenant-id</vdc>
     </task>
@@ -474,7 +494,8 @@ Node Management API
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id"
-	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/chefClient/{node-name}"
+	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+	/{your-tenant-id}/chefClient/{node-name}"
 
 This operation lists information of a specific node.
  		
@@ -484,7 +505,8 @@ This operation lists information of a specific node.
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/{your-tenant-id}/chefClient/{node-name}"
+	-X DELETE "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+	/{your-tenant-id}/chefClient/{node-name}"
 
 	
 	
@@ -497,14 +519,17 @@ Task Management
 
     $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H
     "X-Auth-Token: 756cfb31e062216544215f54447e2716" -H "Tenant-Id: your-tenant-id" 
-	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/your-tenant-id/task/{task-id}"
+	-X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+	/{your-tenant-id}/task/{task-id}"
 	
 This operation recovers the status of a task created previously. It does not need any request body and the response body in XML would be the following. 
 
 .. code::
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc/your-tenant-id/task/{task-id}" startTime="2012-11-08T09:13:18.311+01:00" status="SUCCESS">
+        <task href="https://saggita.lab.fi-ware.org:8443/sdc/rest/vdc
+        /{your-tenant-id}/task/{task-id}" startTime="2012-11-08T09:13:18.311+01:00"
+         status="SUCCESS">
         <description>Install product {product-name} in  VM {vm}</description>
         <vdc>your-tenant-id</vdc>
     </task>

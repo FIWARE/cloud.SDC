@@ -191,10 +191,13 @@ The Software Deployment and Configuration offers a REST API, which it can be use
 managing the software catalogue and the installation of software in virtual machines.
 
 For instance, it is possible to obtain the software list in the catalogue with the
-following curl::
+following curl
 
-  $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml" -H "X-Auth-Token: your-token-id" -H "Tenant-Id: your-tenant-id"
-    -X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product"
+::
+
+  $ curl -v -H "Content-Type: application/json" -H "Accept: application/xml"
+  -H "X-Auth-Token: your-token-id" -H "Tenant-Id: your-tenant-id"
+  -X GET "https://saggita.lab.fi-ware.org:8443/sdc/rest/catalog/product"
 
 Please have a look at the API Reference Documentation section bellow and at the programmer guide.
 
@@ -248,9 +251,10 @@ is running and the database configure correctly::
 
 The request to test it in the testbed should be::
 
-  curl -v -k -H 'Access-Control-Request-Method: GET' -H 'Content-Type: application xml' -H 'Accept: application/xml'
-  -H 'X-Auth-Token: 5d035c3a29be41e0b7007383bdbbec57' -H 'Tenant-Id: 60b4125450fc4a109f50357894ba2e28'
-  -X GET 'https://localhost:8443/sdc/rest/catalog/product'
+  curl -v -k -H 'Access-Control-Request-Method: GET' -H 'Content-Type: application xml'
+  -H 'Accept: application/xml' -H 'X-Auth-Token: 5d035c3a29be41e0b7007383bdbbec57'
+  -H 'Tenant-Id: 60b4125450fc4a109f50357894ba2e28' -X GET
+  'https://localhost:8443/sdc/rest/catalog/product'
 
 the option -k should be included in the case you have not changed the security configuration of SDC. The result should be the product catalog.
 
