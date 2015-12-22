@@ -224,7 +224,7 @@ Requirements: Installation instructions
 Chef server
 ~~~~~~~~~~~
 
-Chef server Installation (Centos 6.5)
+Chef server installation (Centos 6.5)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The SDC installation involves also to install the chef-server
