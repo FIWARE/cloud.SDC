@@ -136,7 +136,9 @@ Install maven 2.5
 .. code::
 
 	sudo yum install wget
-	wget http://mirrors.gigenet.com/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
+	wget http://mirrors.gigenet.com/apache/maven/maven-3/3.2.5/binaries
+	/apache-maven-3.2.5-bin.tar.gz
+
 	su -c "tar -zxvf apache-maven-3.2.5-bin.tar.gz -C /usr/local"
 	cd /usr/local
 	sudo ln -s apache-maven-3.2.5 maven
@@ -222,7 +224,7 @@ Requirements: Installation instructions
 Chef server
 ~~~~~~~~~~~
 
-Chef server Installation (Centos 6.5)
+Chef server installation (Centos 6.5)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The SDC installation involves also to install the chef-server
@@ -240,7 +242,8 @@ in this example we have
 
 .. code::
 
-	chef-server-url = https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-server-11.1.6-1.el6.x86_64.rpm
+	chef-server-url = https://opscode-omnibus-packages.s3.amazonaws.com
+                                   /el/6/x86_64/chef-server-11.1.6-1.el6.x86_64.rpm
 
 In case you do not have wget installed on your system, please type 'yum install wget' to install it. We can just execute
 
@@ -544,13 +547,24 @@ The updates of the columns are done in the following way
 .. code::
 
   su - potgres
+
   postgres$ psql -U postgres -d sdc
   Password for user postgres: <postgres-password-previously-chosen>
-  postgres=# UPDATE configuration_properties SET value='<the value>' where key='sdc_manager_url';
-  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.user';
-  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.pass';
-  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.tenant';
-  postgres=# UPDATE configuration_properties SET value='<the value>' where key='openstack-tcloud.keystone.url';
+
+  postgres=# UPDATE configuration_properties SET value='<the value>'
+  where key='sdc_manager_url';
+
+  postgres=# UPDATE configuration_properties SET value='<the value>'
+  where key='openstack-tcloud.keystone.user';
+
+  postgres=# UPDATE configuration_properties SET value='<the value>'
+  where key='openstack-tcloud.keystone.pass';
+
+  postgres=# UPDATE configuration_properties SET value='<the value>'
+  where key='openstack-tcloud.keystone.tenant';
+
+  postgres=# UPDATE configuration_properties SET value='<the value>'
+  where key='openstack-tcloud.keystone.url';
 
 The last step is to create a sdc client in the chef-server, so that, the
 SDC can communicate with the chef-server. To do that, we can use the
@@ -747,7 +761,11 @@ The request to test it in the testbed should be
 
  .. code::
 
-     curl -v -k -H 'Access-Control-Request-Method: GET' -H 'Content-Type: application xml' -H 'Accept: application/xml' -H 'X-Auth-Token: 5d035c3a29be41e0b7007383bdbbec57' -H 'Tenant-Id: 60b4125450fc4a109f50357894ba2e28' -X GET 'https://localhost:8443/sdc/rest/catalog/product'
+     curl -v -k -H 'Access-Control-Request-Method: GET'
+     -H 'Content-Type: application xml' -H 'Accept: application/xml'
+     -H 'X-Auth-Token: 5d035c3a29be41e0b7007383bdbbec57'
+     -H 'Tenant-Id: 60b4125450fc4a109f50357894ba2e28' -X GET
+     'https://localhost:8443/sdc/rest/catalog/product'
 
 the option -k should be included in the case you have not changed the security configuration of SDC. The result should be the product catalog.
 
@@ -766,14 +784,26 @@ It should show something similar to the following:
 
   .. code::
 
-   postgres  2396     1  0 58141  9228   0 11:51 ?        00:00:00 /usr/bin/postgres -D /var/lib/pgsql/data -p 5432
-   postgres  2397  2396  0 47554  1224   0 11:51 ?        00:00:00 postgres: logger process
-   postgres  2399  2396  0 58167  4400   0 11:51 ?        00:00:00 postgres: checkpointer process
-   postgres  2400  2396  0 58141  1652   0 11:51 ?        00:00:00 postgres: writer process
-   postgres  2401  2396  0 58141  1416   0 11:51 ?        00:00:00 postgres: wal writer process
-   postgres  2402  2396  0 58349  2944   0 11:51 ?        00:00:00 postgres: autovacuum launcher process
-   postgres  2403  2396  0 48110  1720   0 11:51 ?        00:00:00 postgres: stats collector process
-   root      2859     1  0 599252 884004 0 11:59 ?        00:00:29 java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8585 -Dspring.profiles.active=fiware -Xmx1024m -Xms1024m -Djetty.state=/opt/fiware-sdc/jetty.state -Djetty.logs=/opt/fiware-sdc/logs -Djetty.home=/opt/fiware-sdc -Djetty.base=/opt/fiware-sdc -Djava.io.tmpdir=/tmp -jar /opt/fiware-sdc/start.jar jetty-logging.xml jetty-started.xml
+   postgres  2396     1  0 58141  9228   0 11:51 ?        00:00:00 /usr/bin/postgres
+    -D /var/lib/pgsql/data -p 5432
+   postgres  2397  2396  0 47554  1224   0 11:51 ?        00:00:00 postgres:
+    logger process
+   postgres  2399  2396  0 58167  4400   0 11:51 ?        00:00:00 postgres:
+    checkpointer process
+   postgres  2400  2396  0 58141  1652   0 11:51 ?        00:00:00 postgres:
+    writer process
+   postgres  2401  2396  0 58141  1416   0 11:51 ?        00:00:00 postgres:
+    wal writer process
+   postgres  2402  2396  0 58349  2944   0 11:51 ?        00:00:00 postgres:
+    autovacuum launcher process
+   postgres  2403  2396  0 48110  1720   0 11:51 ?        00:00:00 postgres:
+    stats collector process
+   root      2859     1  0 599252 884004 0 11:59 ?        00:00:29 java
+   -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8585
+   -Dspring.profiles.active=fiware -Xmx1024m -Xms1024m
+   -Djetty.state=/opt/fiware-sdc/jetty.state -Djetty.logs=/opt/fiware-sdc/logs
+   -Djetty.home=/opt/fiware-sdc -Djetty.base=/opt/fiware-sdc -Djava.io.tmpdir=/tmp
+   -jar /opt/fiware-sdc/start.jar jetty-logging.xml jetty-started.xml
 
 
 Network interfaces Up & Open
@@ -789,20 +819,22 @@ The expected results for the postgres process must be something like this output
 
 .. code::
 
-    tcp        0      0 0.0.0.0:postgres        0.0.0.0:*               LISTEN      2396/postgres
-    udp6       0      0 localhost:59289         localhost:59289         ESTABLISHED 2396/postgres
-    unix  2      [ ACC ]     STREAM     LISTENING     35218    2396/postgres        /var/run/postgresql/.s.PGSQL.5432
-    unix  2      [ ACC ]     STREAM     LISTENING     35220    2396/postgres        /tmp/.s.PGSQL.5432
+    tcp     0   0 0.0.0.0:postgres   0.0.0.0:*         LISTEN      2396/postgres
+    udp6    0   0 localhost:59289    localhost:59289   ESTABLISHED 2396/postgres
+    unix  2   [ ACC ]   STREAM   LISTENING   35218   2396/postgres
+    /var/run/postgresql/.s.PGSQL.5432
+    unix  2   [ ACC ]   STREAM   LISTENING   35220   2396/postgres
+    /tmp/.s.PGSQL.5432
 
 and the following output for the jetty process:
 
 .. code::
 
-     tcp        0      0 0.0.0.0:8585            0.0.0.0:*               LISTEN      2859/java
-     tcp6       0      0 [::]:pcsync-https       [::]:*                  LISTEN      2859/java
-     unix  2      [ ]         STREAM     CONNECTED     48445    2859/java
-     unix  2      [ ]         STREAM     CONNECTED     62299    2859/java
-     unix  3      [ ]         STREAM     CONNECTED     48380    2859/java
+     tcp    0   0 0.0.0.0:8585       0.0.0.0:*         LISTEN      2859/java
+     tcp6   0   0 [::]:pcsync-https  [::]:*            LISTEN      2859/java
+     unix  2   [ ]      STREAM   CONNECTED   48445   2859/java
+     unix  2   [ ]      STREAM   CONNECTED   62299   2859/java
+     unix  3   [ ]      STREAM   CONNECTED   48380   2859/java
 
 Databases
 ---------
