@@ -3,7 +3,7 @@
 FIWARE SDC | Sagitta
 ====================
 
-|Build Status| |Coverage Status| |help stackoverflow| |License Badge| |Documentation Badge|
+|Build Status| |Coverage Status| |help stackoverflow| |License Badge| |Documentation Badge| |Apiary|
 
 .. contents:: :local:
 
@@ -323,3 +323,5 @@ Top_
    :target: https://opensource.org/licenses/AGPL-3.0
 .. |Documentation Badge| image:: https://readthedocs.org/projects/fiware-sdc/badge/?version=latest
    :target: http://fiware-sdc.readthedocs.org/en/latest/?badge=latest
+.. |Apiary| image:: https://img.shields.io/badge/apiary-v1.0-blue.svg
+   :target: https://jsapi.apiary.io/apis/fiwaresdc/reference.html
