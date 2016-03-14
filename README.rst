@@ -3,7 +3,7 @@
 FIWARE SDC | Sagitta
 ====================
 
-| |Build Status| |Coverage Status| |help stackoverflow|
+|Build Status| |Coverage Status| |help stackoverflow| |License Badge| |Documentation Badge|
 
 .. contents:: :local:
 
@@ -317,5 +317,9 @@ Top_
    :target: https://travis-ci.org/telefonicaid/fiware-sdc
 .. |Coverage Status| image:: https://coveralls.io/repos/telefonicaid/fiware-sdc/badge.png?branch=develop
    :target: https://coveralls.io/r/telefonicaid/fiware-sdc
-.. |help stackoverflow| image:: http://b.repl.ca/v1/help-stackoverflow-orange.png
+.. |help stackoverflow| image:: https://img.shields.io/badge/support-sof-yellowgreen.svg
    :target: https://stackoverflow.com/questions/tagged/fiware-sagitta
+.. |License Badge| image:: https://img.shields.io/badge/license-AGPL-blue.svg
+   :target: https://opensource.org/licenses/AGPL-3.0
+.. |Documentation Badge| image:: https://readthedocs.org/projects/fiware-sdc/badge/?version=latest
+   :target: http://fiware-sdc.readthedocs.org/en/latest/?badge=latest
