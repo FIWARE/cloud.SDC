@@ -1,0 +1,12 @@
+site_name: Fiware-Orion
+site_url: https://fiware-sdc.readthedocs.org
+repo_url: https://github.com/telefonicaid/fiware-sdc.git
+site_description: Sagitta - SDC Manager Documentation
+docs_dir: doc
+site_dir: html
+markdown_extensions: [toc,fenced_code]
+use_directory_urls: false
+theme: readthedocs
+extra_css: ["https://fiware.org/style/fiware_readthedocs.css"]
+pages:
+  - Home: README.rst
