@@ -3,7 +3,7 @@
 FIWARE SDC | Sagitta
 ====================
 
-|Build Status| |Coverage Status| |License Badge| |Documentation Badge| |help stackoverflow|
+|License Badge| |Documentation Badge| |help stackoverflow| |Build Status| |Coverage Status| 
 
 .. contents:: :local:
 
