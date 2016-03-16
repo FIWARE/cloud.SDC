@@ -3,7 +3,8 @@
 FIWARE SDC | Sagitta
 ====================
 
-|Build Status| |Coverage Status| |help stackoverflow| |License Badge| |Documentation Badge| |Apiary|
+
+|License Badge| |Documentation Badge| |help stackoverflow| |Build Status| |Coverage Status| |Apiary|
 
 .. contents:: :local:
 
@@ -319,8 +320,8 @@ Top_
    :target: https://coveralls.io/r/telefonicaid/fiware-sdc
 .. |help stackoverflow| image:: https://img.shields.io/badge/support-sof-yellowgreen.svg
    :target: https://stackoverflow.com/questions/tagged/fiware-sagitta
-.. |License Badge| image:: https://img.shields.io/badge/license-AGPL-blue.svg
-   :target: https://opensource.org/licenses/AGPL-3.0
+.. |License Badge| image:: https://img.shields.io/badge/license-Apache_2.0-blue.svg
+   :target: LICENSE.txt
 .. |Documentation Badge| image:: https://readthedocs.org/projects/fiware-sdc/badge/?version=latest
    :target: http://fiware-sdc.readthedocs.org/en/latest/?badge=latest
 .. |Apiary| image:: https://img.shields.io/badge/apiary-v1.0-blue.svg
